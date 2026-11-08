@@ -1,6 +1,8 @@
 package estacionamiento;
 
 import estacionamiento.servicios.VehiculoServicio;
+import estacionamiento.servicios.InicializacionServicio;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +16,21 @@ public class Main {
     }
 
     @Bean
-    public CommandLineRunner inicializar(VehiculoServicio serviceVehiculo) {
-        return args -> serviceVehiculo.completarVehiculos();
+    public CommandLineRunner inicializar(
+            VehiculoServicio vehiculoServicio,
+            InicializacionServicio inicializacionServicio) {
+
+        return args -> {
+
+            System.out.println("========== INICIO ==========");
+
+            vehiculoServicio.completarVehiculos();
+
+            System.out.println("Iniciando configuración del estacionamiento...");
+
+            inicializacionServicio.inicializar();
+
+            System.out.println("========== FIN ==========");
+        };
     }
 }

@@ -1,7 +1,9 @@
+
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.Vehiculo;
 import estacionamiento.repositorios.VehiculoRepo;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,13 +26,6 @@ public class VehiculoServicio {
     @Transactional
     public void completarVehiculos() {
 
-        long cantidadActual = vehiculoRepo.count();
-
-        if (cantidadActual >= 1000) {
-            System.out.println("Ya existen 1000 vehículos registrados.");
-            return;
-        }
-
         Set<String> matriculasExistentes = new HashSet<>();
 
         for (Vehiculo vehiculo : vehiculoRepo.findAll()) {
@@ -39,7 +34,8 @@ public class VehiculoServicio {
 
         List<Vehiculo> nuevosVehiculos = new ArrayList<>();
 
-        while (matriculasExistentes.size() + nuevosVehiculos.size() < 1000) {
+        // El conjunto aumenta cada vez que se genera una matrícula.
+        while (matriculasExistentes.size() < 1000) {
 
             String matricula = generarMatricula();
 
@@ -50,9 +46,11 @@ public class VehiculoServicio {
 
         vehiculoRepo.saveAll(nuevosVehiculos);
 
-        System.out.println(
-                "Se agregaron " + nuevosVehiculos.size() + " vehículos."
-        );
+        System.out.println("Vehículos existentes y nuevos: "
+                + matriculasExistentes.size());
+
+        System.out.println("Vehículos agregados en esta ejecución: "
+                + nuevosVehiculos.size());
     }
 
     private String generarMatricula() {
