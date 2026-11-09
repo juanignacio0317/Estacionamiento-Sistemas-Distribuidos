@@ -43,4 +43,8 @@ public class Zona {
     public Entrada getEntrada() {
         return entrada;
     }
+
+    public void setEntrada(Entrada entrada) {
+        this.entrada = entrada;
+    }
 }

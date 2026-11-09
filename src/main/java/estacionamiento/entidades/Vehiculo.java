@@ -1,5 +1,5 @@
-
 package estacionamiento.entidades;
+
 import estacionamiento.estados.EstadoVehiculo;
 import jakarta.persistence.*;
 
@@ -16,6 +16,10 @@ public class Vehiculo {
     @ManyToOne
     @JoinColumn(name = "sector_actual_id")
     private Sector sectorActual;
+
+    @ManyToOne
+    @JoinColumn(name = "entrada_ingreso_id")
+    private Entrada entradaIngreso;
 
     public Vehiculo() {
     }
@@ -43,5 +47,13 @@ public class Vehiculo {
 
     public void setSectorActual(Sector sectorActual) {
         this.sectorActual = sectorActual;
+    }
+
+    public Entrada getEntradaIngreso() {
+        return entradaIngreso;
+    }
+
+    public void setEntradaIngreso(Entrada entradaIngreso) {
+        this.entradaIngreso = entradaIngreso;
     }
 }

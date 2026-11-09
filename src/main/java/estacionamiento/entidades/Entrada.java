@@ -1,4 +1,3 @@
-
 package estacionamiento.entidades;
 
 import jakarta.persistence.*;
@@ -13,11 +12,14 @@ public class Entrada {
     @Column(nullable = false, unique = true)
     private String nombre;
 
+    private int posicionRecorrido;
+
     public Entrada() {
     }
 
-    public Entrada(String nombre) {
+    public Entrada(String nombre, int posicionRecorrido) {
         this.nombre = nombre;
+        this.posicionRecorrido = posicionRecorrido;
     }
 
     public Long getId() {
@@ -26,5 +28,13 @@ public class Entrada {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public int getPosicionRecorrido() {
+        return posicionRecorrido;
+    }
+
+    public void setPosicionRecorrido(int posicionRecorrido) {
+        this.posicionRecorrido = posicionRecorrido;
     }
 }

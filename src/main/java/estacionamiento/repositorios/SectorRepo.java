@@ -1,7 +1,9 @@
 package estacionamiento.repositorios;
 
-import estacionamiento.entidades.*;
+import estacionamiento.entidades.Sector;
+import estacionamiento.entidades.Zona;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.List;
 import java.util.Optional;
 

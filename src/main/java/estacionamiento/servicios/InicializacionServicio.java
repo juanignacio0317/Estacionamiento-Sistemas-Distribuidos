@@ -1,12 +1,14 @@
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.*;
+import estacionamiento.estados.EstadoLugar;
 import estacionamiento.estados.EstadoVehiculo;
 import estacionamiento.repositorios.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class InicializacionServicio {
@@ -22,8 +24,8 @@ public class InicializacionServicio {
             ZonaRepo zonaRepo,
             SectorRepo sectorRepo,
             LugarRepo lugarRepo,
-            VehiculoRepo vehiculoRepo) {
-
+            VehiculoRepo vehiculoRepo
+    ) {
         this.entradaRepo = entradaRepo;
         this.zonaRepo = zonaRepo;
         this.sectorRepo = sectorRepo;
@@ -34,108 +36,142 @@ public class InicializacionServicio {
     @Transactional
     public void inicializar() {
 
-        System.out.println("CREANDO ZONAS Y ENTRADAS");
+        System.out.println("Verificando entradas, zonas y sectores...");
 
-        crearZona("Zona 1", "Entrada 1", 334);
-        crearZona("Zona 2", "Entrada 2", 333);
-        crearZona("Zona 3", "Entrada 3", 333);
-
-        System.out.println("Entradas: " + entradaRepo.count());
-        System.out.println("Zonas: " + zonaRepo.count());
-        System.out.println("Sectores: " + sectorRepo.count());
+        crearZona("Zona 1", "Entrada 1", 1, 334);
+        crearZona("Zona 2", "Entrada 2", 34, 333);
+        crearZona("Zona 3", "Entrada 3", 67, 333);
 
         crearLugares();
 
-        System.out.println("Lugares: " + lugarRepo.count());
+        asignarVehiculosPendientes();
 
-        asignarVehiculos();
-
-        System.out.println("Vehículos: " + vehiculoRepo.count());
+        System.out.println("Inicialización finalizada.");
     }
+
     private void crearZona(
             String nombreZona,
             String nombreEntrada,
-            int capacidad) {
+            int posicionEntrada,
+            int capacidad
+    ) {
 
-        Entrada entrada = entradaRepo.findByNombre(nombreEntrada)
-                .orElseGet(() ->
-                        entradaRepo.save(new Entrada(nombreEntrada)));
+        Entrada entrada = entradaRepo.findByNombre(nombreEntrada).orElse(null);
 
-        Zona zona = zonaRepo.findByNombre(nombreZona)
-                .orElseGet(() ->
-                        zonaRepo.save(
-                                new Zona(nombreZona, capacidad, entrada)));
+        if (entrada == null) {
+            entrada = new Entrada(nombreEntrada, posicionEntrada);
+        }
 
-        for (int i = 1; i <= 10; i++) {
-            final int numero = i;
+        entrada.setPosicionRecorrido(posicionEntrada);
+        entrada = entradaRepo.save(entrada);
 
-            sectorRepo.findByZonaAndNumero(zona, numero)
-                    .orElseGet(() ->
-                            sectorRepo.save(new Sector(numero, zona)));
+        Zona zona = zonaRepo.findByNombre(nombreZona).orElse(null);
+
+        if (zona == null) {
+            zona = new Zona(nombreZona, capacidad, entrada);
+        }
+
+        zona.setEntrada(entrada);
+
+        zonaRepo.save(zona);
+
+        for (int numero = 1; numero <= 10; numero++) {
+
+            boolean existe = sectorRepo
+                    .findByZonaAndNumero(zona, numero)
+                    .isPresent();
+
+            if (!existe) {
+                Sector sector = new Sector(numero, zona);
+                sectorRepo.save(sector);
+            }
         }
     }
-
     private void crearLugares() {
 
-        for (int i = 1; i <= 100; i++) {
-            if (!lugarRepo.existsByNumero(i)) {
-                lugarRepo.save(new Lugar(i));
+        for (int numero = 1; numero <= 100; numero++) {
+
+            if (!lugarRepo.existsByNumero(numero)) {
+                lugarRepo.save(new Lugar(numero));
             }
         }
     }
 
-    private void asignarVehiculos() {
+    private void asignarVehiculosPendientes() {
 
-        List<Vehiculo> vehiculos = vehiculoRepo.findAll(
-                org.springframework.data.domain.Sort.by("matricula")
-        );
+        List<Vehiculo> todos = vehiculoRepo.findAll();
+        List<Vehiculo> pendientes = new ArrayList<>();
 
-        List<Zona> zonas = zonaRepo.findAll();
-        zonas.sort(Comparator.comparing(Zona::getNombre));
+        for (Vehiculo vehiculo : todos) {
 
-        if (vehiculos.size() != 1000) {
-            throw new IllegalStateException(
-                    "Se esperaban 1000 vehículos, pero existen "
-                            + vehiculos.size()
-            );
+            if (vehiculo.getSectorActual() == null &&
+                    vehiculo.getEstado() == EstadoVehiculo.ESPERANDO) {
+
+                pendientes.add(vehiculo);
+            }
         }
+
+        List<Zona> zonas = zonaRepo.findAllByOrderByIdAsc();
 
         int indiceVehiculo = 0;
 
         for (Zona zona : zonas) {
 
+            long cantidadEnZona = 0;
+
             List<Sector> sectores =
                     sectorRepo.findByZonaOrderByNumeroAsc(zona);
 
-            int cantidadVehiculosZona = zona.getCapacidadMaxima();
+            for (Sector sector : sectores) {
+                cantidadEnZona +=
+                        vehiculoRepo.countBySectorActual(sector);
+            }
 
-            int cantidadBase = cantidadVehiculosZona / 10;
-            int resto = cantidadVehiculosZona % 10;
+            int capacidadDisponibleZona =
+                    (int) (zona.getCapacidadMaxima() - cantidadEnZona);
 
-            for (int i = 0; i < sectores.size(); i++) {
+            // No se supera la capacidad total de la zona.
+            if (capacidadDisponibleZona <= 0) {
+                continue;
+            }
 
-                Sector sector = sectores.get(i);
+            for (Sector sector : sectores) {
 
-                // Distribución equilibrada: 33 o 34 vehículos.
-                int cantidadSector =
-                        cantidadBase + (i < resto ? 1 : 0);
+                long cantidadEnSector =
+                        vehiculoRepo.countBySectorActual(sector);
 
-                for (int j = 0; j < cantidadSector; j++) {
+                while (cantidadEnSector < sector.getCapacidadMaxima()
+                        && capacidadDisponibleZona > 0
+                        && indiceVehiculo < pendientes.size()) {
 
-                    Vehiculo vehiculo = vehiculos.get(indiceVehiculo);
+                    Vehiculo vehiculo = pendientes.get(indiceVehiculo);
 
                     vehiculo.setSectorActual(sector);
                     vehiculo.setEstado(EstadoVehiculo.ESPERANDO);
 
+                    cantidadEnSector++;
+                    capacidadDisponibleZona--;
                     indiceVehiculo++;
                 }
             }
         }
 
-        vehiculoRepo.saveAll(vehiculos);
+        if (indiceVehiculo > 0) {
+            vehiculoRepo.saveAll(
+                    pendientes.subList(0, indiceVehiculo)
+            );
+        }
+
+        if (indiceVehiculo < pendientes.size()) {
+            System.out.println(
+                    "ATENCIÓN: quedaron "
+                            + (pendientes.size() - indiceVehiculo)
+                            + " vehículos sin sector asignado."
+            );
+        }
 
         System.out.println(
-                "Vehículos distribuidos: " + indiceVehiculo
+                "Vehículos pendientes asignados: " + indiceVehiculo
         );
     }
 }

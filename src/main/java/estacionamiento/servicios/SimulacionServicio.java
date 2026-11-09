@@ -1,37 +1,81 @@
 package estacionamiento.servicios;
 
-import estacionamiento.entidades.Vehiculo;
-
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.*;
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
 public class SimulacionServicio {
 
-    private final EstacionamientoServicio estacionamientoServicio;
+    private final CirculacionServicio circulacionServicio;
+    private final ProgramadorSalidasServicio programadorSalidasServicio;
 
-    private final ScheduledExecutorService scheduler =
-            Executors.newScheduledThreadPool(10);
+    private ScheduledExecutorService scheduler =
+            Executors.newSingleThreadScheduledExecutor();
 
-    private final Random random = new Random();
+    private final AtomicBoolean ejecutando = new AtomicBoolean(false);
 
     public SimulacionServicio(
-            EstacionamientoServicio estacionamientoServicio) {
-
-        this.estacionamientoServicio = estacionamientoServicio;
+            CirculacionServicio circulacionServicio,
+            ProgramadorSalidasServicio programadorSalidasServicio
+    ) {
+        this.circulacionServicio = circulacionServicio;
+        this.programadorSalidasServicio = programadorSalidasServicio;
     }
 
-    public void programarSalida(Vehiculo vehiculo) {
+    public synchronized void iniciar() {
 
-        // Tiempo aleatorio entre 30 y 120 segundos
-        int segundos = random.nextInt(91) + 30;
+        if (ejecutando.get()) {
+            return;
+        }
 
-        scheduler.schedule(
-                () -> estacionamientoServicio.liberarLugar(vehiculo),
-                segundos,
+        if (scheduler.isShutdown()) {
+            scheduler = Executors.newSingleThreadScheduledExecutor();
+        }
+
+        programadorSalidasServicio.reprogramarSalidasPendientes();
+
+        ejecutando.set(true);
+
+        System.out.println("========== SIMULACIÓN INICIADA ==========");
+
+        scheduler.scheduleWithFixedDelay(
+                () -> {
+                    try {
+                        circulacionServicio.avanzarVehiculos();
+                    } catch (Exception e) {
+                        System.err.println(
+                                "Error en el ciclo de circulación: "
+                                        + e.getMessage()
+                        );
+                    }
+                },
+                0,
+                1,
                 TimeUnit.SECONDS
         );
+    }
+
+    public synchronized void detener() {
+
+        if (!ejecutando.get()) {
+            return;
+        }
+
+        ejecutando.set(false);
+        scheduler.shutdownNow();
+
+        System.out.println("========== SIMULACIÓN DETENIDA ==========");
+    }
+
+    public boolean estaEjecutando() {
+        return ejecutando.get();
+    }
+
+    @PreDestroy
+    public void cerrar() {
+        scheduler.shutdownNow();
     }
 }
