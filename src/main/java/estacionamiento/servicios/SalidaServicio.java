@@ -1,3 +1,4 @@
+
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.*;
@@ -54,6 +55,7 @@ public class SalidaServicio {
 
         Lugar lugar = estadia.getLugar();
 
+        // Determina por qué entrada saldrá el vehículo.
         Entrada entradaSalida = buscarPrimeraEntrada(lugar);
 
         Zona zonaSalida = zonaRepo.findByEntrada(entradaSalida)
@@ -70,7 +72,11 @@ public class SalidaServicio {
             return false;
         }
 
-        estacionamientoServicio.liberarLugar(matricula);
+        // Libera el lugar y guarda la entrada de salida.
+        estacionamientoServicio.liberarLugar(
+                matricula,
+                entradaSalida
+        );
 
         vehiculo.setSectorActual(sector10);
         vehiculo.setEstado(EstadoVehiculo.ESPERANDO);

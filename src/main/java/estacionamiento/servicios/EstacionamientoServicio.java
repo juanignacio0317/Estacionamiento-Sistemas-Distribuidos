@@ -1,3 +1,4 @@
+
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.*;
@@ -94,7 +95,13 @@ public class EstacionamientoServicio {
         lugarEncontrado.setEstado(EstadoLugar.OCUPADO);
         lugarRepo.save(lugarEncontrado);
 
-        Estadia estadia = new Estadia(vehiculo, lugarEncontrado);
+        // Guarda también la entrada utilizada.
+        Estadia estadia = new Estadia(
+                vehiculo,
+                lugarEncontrado,
+                entrada
+        );
+
         estadiaRepo.save(estadia);
 
         vehiculo.setEstado(EstadoVehiculo.ESTACIONADO);
@@ -130,7 +137,7 @@ public class EstacionamientoServicio {
     }
 
     @Transactional
-    public void liberarLugar(String matricula) {
+    public void liberarLugar(String matricula, Entrada entradaSalida) {
 
         Vehiculo vehiculo = vehiculoRepo.findById(matricula)
                 .orElseThrow();
@@ -149,7 +156,9 @@ public class EstacionamientoServicio {
         Lugar lugar = estadia.getLugar();
 
         lugar.setEstado(EstadoLugar.LIBRE);
+
         estadia.setFechaSalida(LocalDateTime.now());
+        estadia.setEntradaSalida(entradaSalida);
 
         vehiculo.setEstado(EstadoVehiculo.SALIENDO);
 

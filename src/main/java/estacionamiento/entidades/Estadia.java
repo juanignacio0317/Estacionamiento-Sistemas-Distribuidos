@@ -1,4 +1,5 @@
 
+
 package estacionamiento.entidades;
 
 import jakarta.persistence.*;
@@ -19,6 +20,14 @@ public class Estadia {
     @JoinColumn(name = "lugar_id", nullable = false)
     private Lugar lugar;
 
+    @ManyToOne
+    @JoinColumn(name = "entrada_ingreso_id")
+    private Entrada entradaIngreso;
+
+    @ManyToOne
+    @JoinColumn(name = "entrada_salida_id")
+    private Entrada entradaSalida;
+
     private LocalDateTime fechaEntrada;
 
     private LocalDateTime fechaSalida;
@@ -26,9 +35,10 @@ public class Estadia {
     public Estadia() {
     }
 
-    public Estadia(Vehiculo vehiculo, Lugar lugar) {
+    public Estadia(Vehiculo vehiculo, Lugar lugar, Entrada entradaIngreso) {
         this.vehiculo = vehiculo;
         this.lugar = lugar;
+        this.entradaIngreso = entradaIngreso;
         this.fechaEntrada = LocalDateTime.now();
     }
 
@@ -44,6 +54,14 @@ public class Estadia {
         return lugar;
     }
 
+    public Entrada getEntradaIngreso() {
+        return entradaIngreso;
+    }
+
+    public Entrada getEntradaSalida() {
+        return entradaSalida;
+    }
+
     public LocalDateTime getFechaEntrada() {
         return fechaEntrada;
     }
@@ -54,5 +72,9 @@ public class Estadia {
 
     public void setFechaSalida(LocalDateTime fechaSalida) {
         this.fechaSalida = fechaSalida;
+    }
+
+    public void setEntradaSalida(Entrada entradaSalida) {
+        this.entradaSalida = entradaSalida;
     }
 }
