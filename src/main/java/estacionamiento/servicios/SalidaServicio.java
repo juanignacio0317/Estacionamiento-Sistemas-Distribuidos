@@ -61,8 +61,10 @@ public class SalidaServicio {
         Zona zonaSalida = zonaRepo.findByEntrada(entradaSalida)
                 .orElseThrow();
 
-        Sector sector10 = sectorRepo.findByZonaAndNumero(
-                zonaSalida, 10
+        // Bloqueamos el sector antes de comprobar su capacidad.
+        Sector sector10 = sectorRepo.findByZonaAndNumeroForUpdate(
+                zonaSalida,
+                10
         ).orElseThrow();
 
         long cantidad =

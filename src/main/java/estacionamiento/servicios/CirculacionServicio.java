@@ -1,14 +1,19 @@
+
+
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.*;
 import estacionamiento.estados.EstadoVehiculo;
 import estacionamiento.repositorios.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
 @Service
 public class CirculacionServicio {
+
+    private static final int MAXIMO_MOVIMIENTOS_POR_CICLO = 10;
 
     private final VehiculoRepo vehiculoRepo;
     private final SectorRepo sectorRepo;
@@ -27,6 +32,7 @@ public class CirculacionServicio {
         this.ingresoServicio = ingresoServicio;
     }
 
+    @Transactional
     public void avanzarVehiculos() {
 
         List<Zona> zonas = zonaRepo.findAllByOrderByIdAsc();
@@ -34,55 +40,99 @@ public class CirculacionServicio {
         Map<Zona, List<Vehiculo>> vehiculosSector1 =
                 new LinkedHashMap<>();
 
-        // Guardamos los vehículos que ya estaban en sector 1.
+        Map<Long, List<Vehiculo>> vehiculosPorSector =
+                new LinkedHashMap<>();
+
+        // Guardamos una fotografía de los vehículos de cada sector.
         for (Zona zona : zonas) {
 
-            Sector sector1 = sectorRepo.findByZonaAndNumero(
-                    zona, 1
-            ).orElseThrow();
+            for (int numero = 1; numero <= 10; numero++) {
 
-            List<Vehiculo> vehiculos =
-                    vehiculoRepo.findBySectorActualAndEstado(
-                            sector1,
-                            EstadoVehiculo.ESPERANDO
-                    );
-
-            vehiculosSector1.put(zona, vehiculos);
-        }
-
-        // Avanzamos los vehículos de los sectores 2 a 10.
-        for (Zona zona : zonas) {
-
-            for (int numero = 2; numero <= 10; numero++) {
-
-                Sector origen = sectorRepo.findByZonaAndNumero(
-                        zona, numero
-                ).orElseThrow();
-
-                Sector destino = sectorRepo.findByZonaAndNumero(
-                        zona, numero - 1
+                Sector sector = sectorRepo.findByZonaAndNumero(
+                        zona,
+                        numero
                 ).orElseThrow();
 
                 List<Vehiculo> vehiculos =
                         vehiculoRepo.findBySectorActualAndEstado(
-                                origen,
+                                sector,
                                 EstadoVehiculo.ESPERANDO
                         );
 
-                for (Vehiculo vehiculo : vehiculos) {
+                vehiculosPorSector.put(
+                        sector.getId(),
+                        new ArrayList<>(vehiculos)
+                );
 
-                    long cantidad =
-                            vehiculoRepo.countBySectorActual(destino);
+                if (numero == 1) {
+                    vehiculosSector1.put(
+                            zona,
+                            new ArrayList<>(vehiculos)
+                    );
+                }
+            }
+        }
 
-                    if (cantidad < destino.getCapacidadMaxima()) {
+        // Movemos desde el sector 10 hacia el sector 2.
+        for (Zona zona : zonas) {
+
+            for (int numero = 10; numero >= 2; numero--) {
+
+                Sector origen = sectorRepo.findByZonaAndNumero(
+                        zona,
+                        numero
+                ).orElseThrow();
+
+                // Bloqueamos el destino antes de consultar su capacidad.
+                Sector destino = sectorRepo.findByZonaAndNumeroForUpdate(
+                        zona,
+                        numero - 1
+                ).orElseThrow();
+
+                List<Vehiculo> candidatos =
+                        vehiculosPorSector.get(origen.getId());
+
+                if (candidatos == null || candidatos.isEmpty()) {
+                    continue;
+                }
+
+                long cantidadEnDestino =
+                        vehiculoRepo.countBySectorActual(destino);
+
+                int espacioDisponible =
+                        (int) (destino.getCapacidadMaxima()
+                                - cantidadEnDestino);
+
+                int cantidadAMover = Math.min(
+                        MAXIMO_MOVIMIENTOS_POR_CICLO,
+                        espacioDisponible
+                );
+
+                cantidadAMover = Math.max(0, cantidadAMover);
+
+                int movidos = 0;
+
+                for (Vehiculo vehiculo : candidatos) {
+
+                    if (movidos >= cantidadAMover) {
+                        break;
+                    }
+
+                    if (vehiculo.getSectorActual() != null
+                            && vehiculo.getSectorActual().getId()
+                            .equals(origen.getId())) {
+
                         vehiculo.setSectorActual(destino);
                         vehiculoRepo.save(vehiculo);
+
+                        movidos++;
                     }
                 }
             }
         }
 
-        // Procesamos juntos los intentos de las tres entradas.
+        // Procesamos los intentos de ingreso de los vehículos
+        // que estaban en el sector 1 al comienzo del ciclo.
         ingresoServicio.procesarIngresos(vehiculosSector1);
     }
 }

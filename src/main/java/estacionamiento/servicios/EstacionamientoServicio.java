@@ -1,4 +1,5 @@
 
+
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.*;
@@ -66,7 +67,18 @@ public class EstacionamientoServicio {
             return false;
         }
 
-        // Bloquea los lugares y los obtiene en orden circular.
+        // Primero bloqueamos el sector 10 de la zona de entrada.
+        // Esto sincroniza los vehículos que necesitan regresar
+        // a esta entrada cuando no encuentran lugar.
+        Zona zona = zonaRepo.findByEntrada(entrada)
+                .orElseThrow();
+
+        Sector sector10 = sectorRepo.findByZonaAndNumeroForUpdate(
+                zona,
+                10
+        ).orElseThrow();
+
+        // Después bloqueamos los lugares de estacionamiento.
         List<Lugar> lugares = lugarRepo.buscarTodosBloqueados();
 
         Lugar lugarEncontrado = null;
@@ -87,8 +99,7 @@ public class EstacionamientoServicio {
 
         // Completó el recorrido y no encontró lugar.
         if (lugarEncontrado == null) {
-            devolverAEntrada(vehiculo, entrada);
-            return false;
+            return devolverAEntrada(vehiculo, sector10);
         }
 
         // Ocupa el primer lugar libre encontrado.
@@ -113,20 +124,17 @@ public class EstacionamientoServicio {
         return true;
     }
 
-    private void devolverAEntrada(Vehiculo vehiculo, Entrada entrada) {
-
-        Zona zona = zonaRepo.findByEntrada(entrada)
-                .orElseThrow();
-
-        Sector sector10 = sectorRepo.findByZonaAndNumero(zona, 10)
-                .orElseThrow();
+    private boolean devolverAEntrada(
+            Vehiculo vehiculo,
+            Sector sector10
+    ) {
 
         long cantidad = vehiculoRepo.countBySectorActual(sector10);
 
+        // Si el sector está lleno, el vehículo permanece
+        // en el sector 1 y podrá volver a intentar ingresar.
         if (cantidad >= sector10.getCapacidadMaxima()) {
-            throw new IllegalStateException(
-                    "El sector 10 de " + zona.getNombre() + " está lleno"
-            );
+            return false;
         }
 
         vehiculo.setSectorActual(sector10);
@@ -134,6 +142,8 @@ public class EstacionamientoServicio {
         vehiculo.setEntradaIngreso(null);
 
         vehiculoRepo.save(vehiculo);
+
+        return true;
     }
 
     @Transactional

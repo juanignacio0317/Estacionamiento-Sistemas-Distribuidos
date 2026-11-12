@@ -49,6 +49,7 @@ public class InicializacionServicio {
         System.out.println("Inicialización finalizada.");
     }
 
+
     private void crearZona(
             String nombreZona,
             String nombreEntrada,
@@ -77,16 +78,23 @@ public class InicializacionServicio {
 
         for (int numero = 1; numero <= 10; numero++) {
 
-            boolean existe = sectorRepo
+            Sector sector = sectorRepo
                     .findByZonaAndNumero(zona, numero)
-                    .isPresent();
+                    .orElse(null);
 
-            if (!existe) {
-                Sector sector = new Sector(numero, zona);
-                sectorRepo.save(sector);
+            if (sector == null) {
+                sector = new Sector(numero, zona);
             }
+
+            int capacidadSector = numero == 10 ? 40 : 34;
+
+            sector.setCapacidadMaxima(capacidadSector);
+
+            sectorRepo.save(sector);
         }
     }
+
+
     private void crearLugares() {
 
         for (int numero = 1; numero <= 100; numero++) {

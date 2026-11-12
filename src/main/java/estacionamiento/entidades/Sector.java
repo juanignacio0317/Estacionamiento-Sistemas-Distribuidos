@@ -1,4 +1,5 @@
 
+
 package estacionamiento.entidades;
 
 import jakarta.persistence.*;
@@ -29,7 +30,7 @@ public class Sector {
     public Sector(int numero, Zona zona) {
         this.numero = numero;
         this.zona = zona;
-        this.capacidadMaxima = 34;
+        this.capacidadMaxima = numero == 10 ? 40 : 34;
     }
 
     public Long getId() {
@@ -50,5 +51,9 @@ public class Sector {
 
     public void setZona(Zona zona) {
         this.zona = zona;
+    }
+
+    public void setCapacidadMaxima(int capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
     }
 }
