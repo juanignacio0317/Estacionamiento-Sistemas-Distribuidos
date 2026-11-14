@@ -22,4 +22,8 @@ public interface EstadiaRepo extends JpaRepository<Estadia, Long> {
     WHERE e.fechaSalida IS NULL
 """)
     List<Object[]> buscarLugaresOcupadosConMatricula();
+
+    List<Estadia> findAllByVehiculo_MatriculaOrderByFechaEntradaDesc(
+            String matricula
+    );
 }

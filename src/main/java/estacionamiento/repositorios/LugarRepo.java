@@ -24,4 +24,6 @@ public interface LugarRepo extends JpaRepository<Lugar, Long> {
     List<Lugar> buscarTodosBloqueados();
 
     List<Lugar> findAllByOrderByNumeroAsc();
+
+    List<Lugar> findAllByEstadoOrderByNumeroAsc(EstadoLugar estado);
 }

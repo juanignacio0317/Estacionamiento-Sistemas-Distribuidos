@@ -1,4 +1,3 @@
-
 package estacionamiento.ui;
 
 import estacionamiento.rabbit.MonitorEntradaServicio;
@@ -28,6 +27,7 @@ public class VentanaPrincipal {
     private PanelEstacionamiento panelEstacionamiento;
     private PanelBuscando panelBuscando;
     private PanelActividad panelActividad;
+    private PanelAdministrador panelAdministrador;
 
     public VentanaPrincipal(
             EstacionamientoServicio estacionamientoServicio,
@@ -108,6 +108,8 @@ public class VentanaPrincipal {
         panelActividad =
                 new PanelActividad(actividadServicio);
 
+        panelAdministrador = new PanelAdministrador();
+
         // PESTAÑA ESTACIONAMIENTO
 
         JPanel panelEstacionamientoTab = new JPanel(
@@ -150,6 +152,11 @@ public class VentanaPrincipal {
         pestañas.addTab(
                 "Actividad",
                 panelActividad
+        );
+
+        pestañas.addTab(
+                "Administrador",
+                panelAdministrador
         );
 
         ventana.add(panelSuperior, BorderLayout.NORTH);
