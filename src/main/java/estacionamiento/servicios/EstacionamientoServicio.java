@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import estacionamiento.rabbit.DisponibilidadCambioEvent;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -187,5 +189,24 @@ public class EstacionamientoServicio {
         lugarRepo.save(lugar);
         estadiaRepo.save(estadia);
         vehiculoRepo.save(vehiculo);
+    }
+
+    @Transactional(readOnly = true)
+    public Map<Integer, String> obtenerMatriculasPorLugar() {
+
+        List<Object[]> resultados =
+                estadiaRepo.buscarLugaresOcupadosConMatricula();
+
+        Map<Integer, String> matriculasPorLugar = new HashMap<>();
+
+        for (Object[] resultado : resultados) {
+
+            int numeroLugar = ((Number) resultado[0]).intValue();
+            String matricula = (String) resultado[1];
+
+            matriculasPorLugar.put(numeroLugar, matricula);
+        }
+
+        return matriculasPorLugar;
     }
 }

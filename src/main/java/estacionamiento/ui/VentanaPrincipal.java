@@ -1,6 +1,7 @@
 
 package estacionamiento.ui;
 
+import estacionamiento.rabbit.MonitorEntradaServicio;
 import estacionamiento.servicios.EstacionamientoServicio;
 import estacionamiento.servicios.SimulacionServicio;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ public class VentanaPrincipal {
 
     private final EstacionamientoServicio estacionamientoServicio;
     private final SimulacionServicio simulacionServicio;
+    private final MonitorEntradaServicio monitorEntradaServicio;
 
     private JFrame ventana;
     private JButton botonIniciar;
@@ -21,23 +23,29 @@ public class VentanaPrincipal {
 
     public VentanaPrincipal(
             EstacionamientoServicio estacionamientoServicio,
-            SimulacionServicio simulacionServicio
+            SimulacionServicio simulacionServicio,
+            MonitorEntradaServicio monitorEntradaServicio
     ) {
         this.estacionamientoServicio = estacionamientoServicio;
         this.simulacionServicio = simulacionServicio;
+        this.monitorEntradaServicio = monitorEntradaServicio;
     }
+
 
     public void mostrar() {
 
         ventana = new JFrame("Sistema de Estacionamiento");
 
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setSize(900, 750);
-        ventana.setMinimumSize(new Dimension(750, 650));
+        ventana.setSize(1000, 800);
+        ventana.setMinimumSize(new Dimension(850, 700));
         ventana.setLocationRelativeTo(null);
         ventana.setLayout(new BorderLayout());
 
-        // Panel superior.
+        // ==========================================
+        // PANEL SUPERIOR
+        // ==========================================
+
         JPanel panelSuperior = new JPanel(new BorderLayout(10, 10));
 
         panelSuperior.setBorder(
@@ -55,6 +63,8 @@ public class VentanaPrincipal {
                 "Simulación detenida",
                 SwingConstants.CENTER
         );
+
+        estadoSimulacion.setFont(new Font("Arial", Font.PLAIN, 14));
 
         JPanel panelBotones = new JPanel(new FlowLayout());
 
@@ -76,15 +86,43 @@ public class VentanaPrincipal {
         panelSuperior.add(estadoSimulacion, BorderLayout.CENTER);
         panelSuperior.add(panelBotones, BorderLayout.SOUTH);
 
-        // Panel central.
+
+        // ==========================================
+        // PANEL DE LAS TRES ENTRADAS
+        // ==========================================
+
+        PanelEntradas panelEntradas =
+                new PanelEntradas(monitorEntradaServicio);
+
+
+        // ==========================================
+        // PANEL DEL ESTACIONAMIENTO
+        // ==========================================
+
         PanelEstacionamiento panelEstacionamiento =
                 new PanelEstacionamiento(estacionamientoServicio);
 
+
+        // ==========================================
+        // PANEL CENTRAL
+        // ==========================================
+
+        JPanel panelCentral = new JPanel(new BorderLayout());
+
+        panelCentral.add(panelEntradas, BorderLayout.NORTH);
+        panelCentral.add(panelEstacionamiento, BorderLayout.CENTER);
+
+
+        // ==========================================
+        // AGREGAR TODO A LA VENTANA
+        // ==========================================
+
         ventana.add(panelSuperior, BorderLayout.NORTH);
-        ventana.add(panelEstacionamiento, BorderLayout.CENTER);
+        ventana.add(panelCentral, BorderLayout.CENTER);
 
         ventana.setVisible(true);
     }
+
 
     private void iniciarSimulacion() {
 

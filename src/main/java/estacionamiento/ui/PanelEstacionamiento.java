@@ -12,6 +12,13 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.awt.geom.RoundRectangle2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.BasicStroke;
+import java.util.Map;
+
 public class PanelEstacionamiento extends JPanel {
 
     private final EstacionamientoServicio estacionamientoServicio;
@@ -55,20 +62,16 @@ public class PanelEstacionamiento extends JPanel {
                     SwingConstants.CENTER
             );
 
-            etiquetaNumero.setFont(new Font(
-                    "Arial", Font.PLAIN, 12
-            ));
+            etiquetaNumero.setFont(
+                    new Font("Arial", Font.PLAIN, 12)
+            );
 
             JLabel indicador = new JLabel(
                     "",
                     SwingConstants.CENTER
             );
 
-            indicador.setFont(new Font(
-                    "Arial", Font.BOLD, 24
-            ));
-
-            indicador.setForeground(Color.RED);
+            indicador.setHorizontalAlignment(SwingConstants.CENTER);
 
             casilla.add(etiquetaNumero, BorderLayout.NORTH);
             casilla.add(indicador, BorderLayout.CENTER);
@@ -82,68 +85,135 @@ public class PanelEstacionamiento extends JPanel {
 
     private void actualizarLugares() {
 
-        // Evita iniciar otra consulta si la anterior todavía no terminó.
         if (actualizando) {
             return;
         }
 
         actualizando = true;
 
-        SwingWorker<List<Lugar>, Void> tarea = new SwingWorker<>() {
+        SwingWorker<Map<Integer, String>, Void> tarea =
+                new SwingWorker<>() {
 
-            @Override
-            protected List<Lugar> doInBackground() {
-                return estacionamientoServicio.obtenerLugares();
-            }
+                    @Override
+                    protected Map<Integer, String> doInBackground() {
 
-            @Override
-            protected void done() {
-
-                try {
-                    List<Lugar> lugares = get();
-
-                    for (Lugar lugar : lugares) {
-
-                        int numero = lugar.getNumero();
-
-                        JLabel indicador = indicadores.get(numero);
-                        JPanel casilla = casillas.get(numero);
-
-                        if (indicador == null || casilla == null) {
-                            continue;
-                        }
-
-                        if (lugar.getEstado() == EstadoLugar.OCUPADO) {
-
-                            indicador.setText("●");
-
-                            casilla.setToolTipText(
-                                    "Lugar " + numero + " - Ocupado"
-                            );
-
-                        } else {
-
-                            indicador.setText("");
-
-                            casilla.setToolTipText(
-                                    "Lugar " + numero + " - Libre"
-                            );
-                        }
+                        return estacionamientoServicio.obtenerMatriculasPorLugar();
                     }
 
-                } catch (Exception e) {
+                    @Override
+                    protected void done() {
 
-                    System.err.println(
-                            "Error al actualizar los lugares: "
-                                    + e.getMessage()
-                    );
+                        try {
 
-                } finally {
-                    actualizando = false;
-                }
-            }
-        };
+                            Map<Integer, String> matriculasPorLugar = get();
+
+                            for (int numero = 1; numero <= 100; numero++) {
+
+                                JLabel indicador = indicadores.get(numero);
+                                JPanel casilla = casillas.get(numero);
+
+                                String matricula = matriculasPorLugar.get(numero);
+
+                                if (matricula != null) {
+
+                                    indicador.setIcon(new AutoIcon());
+
+                                    casilla.setToolTipText(
+                                            "Matrícula: " + matricula
+                                    );
+
+                                } else {
+
+                                    indicador.setIcon(null);
+
+                                    casilla.setToolTipText(
+                                            "Lugar " + numero + " - Libre"
+                                    );
+                                }
+                            }
+
+                        } catch (Exception e) {
+
+                            System.err.println(
+                                    "Error al actualizar los lugares: "
+                                            + e.getMessage()
+                            );
+
+                        } finally {
+
+                            actualizando = false;
+                        }
+                    }
+                };
 
         tarea.execute();
+    }
+    private static class AutoIcon implements Icon {
+
+        @Override
+        public int getIconWidth() {
+            return 32;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return 32;
+        }
+
+        @Override
+        public void paintIcon(
+                Component componente,
+                Graphics g,
+                int x,
+                int y
+        ) {
+
+            Graphics2D g2 = (Graphics2D) g.create();
+
+            g2.setRenderingHint(
+                    RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON
+            );
+
+            // Carrocería roja.
+            g2.setColor(new Color(210, 35, 35));
+
+            g2.fill(new RoundRectangle2D.Double(
+                    x + 5, y + 9, 22, 16, 7, 7
+            ));
+
+            // Parte superior del auto.
+            g2.fill(new RoundRectangle2D.Double(
+                    x + 9, y + 5, 14, 13, 5, 5
+            ));
+
+            // Ventanas.
+            g2.setColor(new Color(190, 225, 240));
+
+            g2.fill(new RoundRectangle2D.Double(
+                    x + 11, y + 7, 10, 8, 3, 3
+            ));
+
+            // Ruedas.
+            g2.setColor(Color.DARK_GRAY);
+
+            g2.fill(new Ellipse2D.Double(
+                    x + 4, y + 11, 5, 8
+            ));
+
+            g2.fill(new Ellipse2D.Double(
+                    x + 23, y + 11, 5, 8
+            ));
+
+            g2.fill(new Ellipse2D.Double(
+                    x + 4, y + 20, 5, 8
+            ));
+
+            g2.fill(new Ellipse2D.Double(
+                    x + 23, y + 20, 5, 8
+            ));
+
+            g2.dispose();
+        }
     }
 }
