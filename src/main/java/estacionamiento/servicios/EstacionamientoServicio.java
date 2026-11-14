@@ -10,10 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import estacionamiento.rabbit.DisponibilidadCambioEvent;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class EstacionamientoServicio {
@@ -26,6 +23,8 @@ public class EstacionamientoServicio {
     private final SectorRepo sectorRepo;
     private final ApplicationEventPublisher eventPublisher;
     private final ActividadServicio actividadServicio;
+    private final ReservaRepo reservaRepo;
+
 
     public EstacionamientoServicio(
             LugarRepo lugarRepo,
@@ -35,7 +34,8 @@ public class EstacionamientoServicio {
             ZonaRepo zonaRepo,
             SectorRepo sectorRepo,
             ApplicationEventPublisher eventPublisher,
-            ActividadServicio actividadServicio
+            ActividadServicio actividadServicio,
+            ReservaRepo reservaRepo
     ) {
         this.lugarRepo = lugarRepo;
         this.estadiaRepo = estadiaRepo;
@@ -45,10 +45,11 @@ public class EstacionamientoServicio {
         this.sectorRepo = sectorRepo;
         this.eventPublisher = eventPublisher;
         this.actividadServicio = actividadServicio;
+        this.reservaRepo = reservaRepo;
     }
 
     public long cantidadLugaresLibres() {
-        return lugarRepo.countByEstado(EstadoLugar.LIBRE);
+        return lugarRepo.contarLugaresLibresNoReservados();
     }
 
     @Transactional(readOnly = true)
@@ -92,9 +93,21 @@ public class EstacionamientoServicio {
         ).orElseThrow();
 
         // Después bloqueamos los lugares de estacionamiento.
+        // Después bloqueamos los lugares de estacionamiento.
         List<Lugar> lugares = lugarRepo.buscarTodosBloqueados();
 
+// Consultamos los números de los lugares reservados.
+        List<Reserva> reservasActivas =
+                reservaRepo.findAllByActivaTrue();
+
+        List<Integer> lugaresReservados = new ArrayList<>();
+
+        for (Reserva reserva : reservasActivas) {
+            lugaresReservados.add(reserva.getLugar().getNumero());
+        }
+
         Lugar lugarEncontrado = null;
+
 
         int posicionInicial = entrada.getPosicionRecorrido() - 1;
 
@@ -104,7 +117,8 @@ public class EstacionamientoServicio {
 
             Lugar lugar = lugares.get(indice);
 
-            if (lugar.getEstado() == EstadoLugar.LIBRE) {
+            if (lugar.getEstado() == EstadoLugar.LIBRE &&
+                    !lugaresReservados.contains(lugar.getNumero())) {
                 lugarEncontrado = lugar;
                 break;
             }

@@ -78,6 +78,11 @@ public class PanelAdministrador extends JPanel {
                 crearPanelDisponibilidad()
         );
 
+        pestañas.addTab(
+                "Reservas",
+                new PanelReservas()
+        );
+
         add(pestañas, BorderLayout.CENTER);
     }
 

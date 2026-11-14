@@ -150,9 +150,7 @@ public class ConsultasAdministradorServicio {
     public LugaresDisponiblesDTO consultarLugaresDisponibles() {
 
         List<Lugar> lugares =
-                lugarRepo.findAllByEstadoOrderByNumeroAsc(
-                        EstadoLugar.LIBRE
-                );
+                lugarRepo.buscarLugaresLibresNoReservados();;
 
         List<Integer> numerosLibres = new ArrayList<>();
 

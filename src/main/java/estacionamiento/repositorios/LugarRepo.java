@@ -26,4 +26,33 @@ public interface LugarRepo extends JpaRepository<Lugar, Long> {
     List<Lugar> findAllByOrderByNumeroAsc();
 
     List<Lugar> findAllByEstadoOrderByNumeroAsc(EstadoLugar estado);
+
+
+    @Query("""
+    SELECT COUNT(l)
+    FROM Lugar l
+    WHERE l.estado = estacionamiento.estados.EstadoLugar.LIBRE
+    AND NOT EXISTS (
+        SELECT r.id
+        FROM Reserva r
+        WHERE r.lugar = l
+        AND r.activa = true
+    )
+""")
+    long contarLugaresLibresNoReservados();
+
+    @Query("""
+    SELECT l
+    FROM Lugar l
+    WHERE l.estado = estacionamiento.estados.EstadoLugar.LIBRE
+    AND NOT EXISTS (
+        SELECT r.id
+        FROM Reserva r
+        WHERE r.lugar = l
+        AND r.activa = true
+    )
+    ORDER BY l.numero ASC
+""")
+    List<Lugar> buscarLugaresLibresNoReservados();
+
 }
