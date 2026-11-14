@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 
 import org.springframework.boot.CommandLineRunner;
 
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+
 @Configuration
 public class RabbitConfig {
 
@@ -72,5 +74,10 @@ public class RabbitConfig {
 
             System.out.println("========== RABBIT INICIALIZADO ==========");
         };
+    }
+
+    @Bean
+    public Jackson2JsonMessageConverter rabbitMessageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 }

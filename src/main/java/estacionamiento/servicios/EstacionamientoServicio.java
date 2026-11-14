@@ -6,8 +6,10 @@ import estacionamiento.entidades.*;
 import estacionamiento.estados.EstadoLugar;
 import estacionamiento.estados.EstadoVehiculo;
 import estacionamiento.repositorios.*;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import estacionamiento.rabbit.DisponibilidadCambioEvent;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,6 +24,7 @@ public class EstacionamientoServicio {
     private final EntradaRepo entradaRepo;
     private final ZonaRepo zonaRepo;
     private final SectorRepo sectorRepo;
+    private final ApplicationEventPublisher eventPublisher;
 
     public EstacionamientoServicio(
             LugarRepo lugarRepo,
@@ -29,7 +32,8 @@ public class EstacionamientoServicio {
             VehiculoRepo vehiculoRepo,
             EntradaRepo entradaRepo,
             ZonaRepo zonaRepo,
-            SectorRepo sectorRepo
+            SectorRepo sectorRepo,
+            ApplicationEventPublisher eventPublisher
     ) {
         this.lugarRepo = lugarRepo;
         this.estadiaRepo = estadiaRepo;
@@ -37,6 +41,7 @@ public class EstacionamientoServicio {
         this.entradaRepo = entradaRepo;
         this.zonaRepo = zonaRepo;
         this.sectorRepo = sectorRepo;
+        this.eventPublisher = eventPublisher;
     }
 
     public long cantidadLugaresLibres() {
@@ -106,6 +111,8 @@ public class EstacionamientoServicio {
         lugarEncontrado.setEstado(EstadoLugar.OCUPADO);
         lugarRepo.save(lugarEncontrado);
 
+        eventPublisher.publishEvent(new DisponibilidadCambioEvent());
+
         // Guarda también la entrada utilizada.
         Estadia estadia = new Estadia(
                 vehiculo,
@@ -166,6 +173,8 @@ public class EstacionamientoServicio {
         Lugar lugar = estadia.getLugar();
 
         lugar.setEstado(EstadoLugar.LIBRE);
+
+        eventPublisher.publishEvent(new DisponibilidadCambioEvent());
 
         estadia.setFechaSalida(LocalDateTime.now());
         estadia.setEntradaSalida(entradaSalida);
