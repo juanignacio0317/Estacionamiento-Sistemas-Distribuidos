@@ -82,34 +82,40 @@ public class SimulacionServicio {
                 "========== INICIANDO CIERRE DE SIMULACIÓN =========="
         );
 
-        // 1. Deja de iniciar ciclos nuevos y espera el ciclo actual.
+        // 1. Detener circulación y esperar el ciclo actual.
         scheduler.shutdown();
+        esperarFinalizacion(scheduler, "circulación");
 
+        // 2. Ya no hay ciclos que puedan enviar nuevos ingresos.
+        ingresoServicio.detener();
+
+        // 3. Esperar las salidas que ya estaban ejecutándose.
+        programadorSalidasServicio.detener();
+
+        System.out.println(
+                "========== SIMULACIÓN DETENIDA =========="
+        );
+    }
+
+    private void esperarFinalizacion(
+            ExecutorService executor,
+            String nombre
+    ) {
         try {
-
-            if (!scheduler.awaitTermination(30, TimeUnit.SECONDS)) {
-
-                System.err.println(
-                        "La circulación demoró demasiado en terminar."
+            while (!executor.awaitTermination(30, TimeUnit.SECONDS)) {
+                System.out.println(
+                        "Esperando que termine: " + nombre
                 );
-
-                scheduler.shutdownNow();
-                scheduler.awaitTermination(5, TimeUnit.SECONDS);
             }
 
         } catch (InterruptedException e) {
-
-            scheduler.shutdownNow();
             Thread.currentThread().interrupt();
+
+            throw new IllegalStateException(
+                    "Se interrumpió la espera de finalización de " + nombre,
+                    e
+            );
         }
-
-        // 2. Ya no hay ciclos enviando nuevos ingresos.
-        ingresoServicio.detener();
-
-        // 3. Detiene las salidas y espera las que estaban ejecutándose.
-        programadorSalidasServicio.detener();
-
-        System.out.println("========== SIMULACIÓN DETENIDA ==========");
     }
 
     public boolean estaEjecutando() {

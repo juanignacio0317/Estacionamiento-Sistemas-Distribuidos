@@ -139,28 +139,32 @@ public class ProgramadorSalidasServicio {
             return;
         }
 
-        // Deja terminar las tareas activas, pero cancela las demoradas.
         scheduler.shutdown();
 
+        esperarFinalizacion();
+
+        System.out.println(
+                "========== PROGRAMADOR DE SALIDAS DETENIDO =========="
+        );
+    }
+
+    private void esperarFinalizacion() {
+
         try {
-
-            if (!scheduler.awaitTermination(20, TimeUnit.SECONDS)) {
-
-                System.err.println(
-                        "El programador de salidas no terminó a tiempo."
+            while (!scheduler.awaitTermination(30, TimeUnit.SECONDS)) {
+                System.out.println(
+                        "Esperando que terminen las salidas en ejecución..."
                 );
-
-                scheduler.shutdownNow();
-                scheduler.awaitTermination(5, TimeUnit.SECONDS);
             }
 
         } catch (InterruptedException e) {
-
-            scheduler.shutdownNow();
             Thread.currentThread().interrupt();
-        }
 
-        System.out.println("========== PROGRAMADOR DE SALIDAS DETENIDO ==========");
+            throw new IllegalStateException(
+                    "Se interrumpió la espera de las salidas",
+                    e
+            );
+        }
     }
 
     @PreDestroy

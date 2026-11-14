@@ -1,4 +1,5 @@
 
+
 package estacionamiento.ui;
 
 import estacionamiento.rabbit.MonitorEntradaServicio;
@@ -28,7 +29,6 @@ public class PanelEntradas extends JPanel {
         crearPaneles();
 
         actualizador = new Timer(1000, e -> actualizarDisponibilidad());
-        actualizador.start();
 
         actualizarDisponibilidad();
     }
@@ -40,7 +40,9 @@ public class PanelEntradas extends JPanel {
             JPanel panel = new JPanel(new BorderLayout(5, 10));
 
             panel.setBackground(Color.WHITE);
-            panel.setBorder(new LineBorder(new Color(180, 185, 190), 1));
+            panel.setBorder(new LineBorder(
+                    new Color(180, 185, 190), 1
+            ));
 
             JLabel titulo = new JLabel(
                     "ENTRADA " + (i + 1),
@@ -76,5 +78,14 @@ public class PanelEntradas extends JPanel {
                     "Lugares disponibles: " + disponibles
             );
         }
+    }
+
+    public void iniciarActualizador() {
+        actualizarDisponibilidad();
+        actualizador.start();
+    }
+
+    public void detenerActualizador() {
+        actualizador.stop();
     }
 }

@@ -2,8 +2,8 @@
 package estacionamiento.ui;
 
 import estacionamiento.rabbit.MonitorEntradaServicio;
-import estacionamiento.servicios.EstacionamientoServicio;
-import estacionamiento.servicios.SimulacionServicio;
+import estacionamiento.servicios.*;
+
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -15,22 +15,33 @@ public class VentanaPrincipal {
     private final EstacionamientoServicio estacionamientoServicio;
     private final SimulacionServicio simulacionServicio;
     private final MonitorEntradaServicio monitorEntradaServicio;
+    private final ActividadServicio actividadServicio;
+    private final VehiculosBuscandoServicio vehiculosBuscandoServicio;
 
     private JFrame ventana;
+
     private JButton botonIniciar;
     private JButton botonFinalizar;
     private JLabel estadoSimulacion;
 
+    private PanelEntradas panelEntradas;
+    private PanelEstacionamiento panelEstacionamiento;
+    private PanelBuscando panelBuscando;
+    private PanelActividad panelActividad;
+
     public VentanaPrincipal(
             EstacionamientoServicio estacionamientoServicio,
             SimulacionServicio simulacionServicio,
-            MonitorEntradaServicio monitorEntradaServicio
+            MonitorEntradaServicio monitorEntradaServicio,
+            ActividadServicio actividadServicio,
+            VehiculosBuscandoServicio vehiculosBuscandoServicio
     ) {
         this.estacionamientoServicio = estacionamientoServicio;
         this.simulacionServicio = simulacionServicio;
         this.monitorEntradaServicio = monitorEntradaServicio;
+        this.actividadServicio = actividadServicio;
+        this.vehiculosBuscandoServicio = vehiculosBuscandoServicio;
     }
-
 
     public void mostrar() {
 
@@ -42,9 +53,7 @@ public class VentanaPrincipal {
         ventana.setLocationRelativeTo(null);
         ventana.setLayout(new BorderLayout());
 
-        // ==========================================
         // PANEL SUPERIOR
-        // ==========================================
 
         JPanel panelSuperior = new JPanel(new BorderLayout(10, 10));
 
@@ -86,53 +95,86 @@ public class VentanaPrincipal {
         panelSuperior.add(estadoSimulacion, BorderLayout.CENTER);
         panelSuperior.add(panelBotones, BorderLayout.SOUTH);
 
+        // PANELES
 
-        // ==========================================
-        // PANEL DE LAS TRES ENTRADAS
-        // ==========================================
+        panelEntradas = new PanelEntradas(monitorEntradaServicio);
 
-        PanelEntradas panelEntradas =
-                new PanelEntradas(monitorEntradaServicio);
-
-
-        // ==========================================
-        // PANEL DEL ESTACIONAMIENTO
-        // ==========================================
-
-        PanelEstacionamiento panelEstacionamiento =
+        panelEstacionamiento =
                 new PanelEstacionamiento(estacionamientoServicio);
 
+        panelBuscando =
+                new PanelBuscando(vehiculosBuscandoServicio);
 
-        // ==========================================
-        // PANEL CENTRAL
-        // ==========================================
+        panelActividad =
+                new PanelActividad(actividadServicio);
 
-        JPanel panelCentral = new JPanel(new BorderLayout());
+        // PESTAÑA ESTACIONAMIENTO
 
-        panelCentral.add(panelEntradas, BorderLayout.NORTH);
-        panelCentral.add(panelEstacionamiento, BorderLayout.CENTER);
+        JPanel panelEstacionamientoTab = new JPanel(
+                new BorderLayout()
+        );
 
+        JPanel panelSuperiorEstacionamiento = new JPanel(
+                new BorderLayout()
+        );
 
-        // ==========================================
-        // AGREGAR TODO A LA VENTANA
-        // ==========================================
+        panelSuperiorEstacionamiento.add(
+                panelEntradas,
+                BorderLayout.NORTH
+        );
+
+        panelSuperiorEstacionamiento.add(
+                panelBuscando,
+                BorderLayout.CENTER
+        );
+
+        panelEstacionamientoTab.add(
+                panelSuperiorEstacionamiento,
+                BorderLayout.NORTH
+        );
+
+        panelEstacionamientoTab.add(
+                panelEstacionamiento,
+                BorderLayout.CENTER
+        );
+
+        // PESTAÑAS
+
+        JTabbedPane pestañas = new JTabbedPane();
+
+        pestañas.addTab(
+                "Estacionamiento",
+                panelEstacionamientoTab
+        );
+
+        pestañas.addTab(
+                "Actividad",
+                panelActividad
+        );
 
         ventana.add(panelSuperior, BorderLayout.NORTH);
-        ventana.add(panelCentral, BorderLayout.CENTER);
+        ventana.add(pestañas, BorderLayout.CENTER);
 
         ventana.setVisible(true);
     }
-
 
     private void iniciarSimulacion() {
 
         botonIniciar.setEnabled(false);
         estadoSimulacion.setText("Iniciando simulación...");
 
+        // Comienza una nueva lista de actividades en memoria.
+        actividadServicio.limpiar();
+        vehiculosBuscandoServicio.limpiar();
+
+        panelActividad.reiniciar();
+        panelBuscando.reiniciar();
+
         SwingWorker<Void, Void> tarea = new SwingWorker<>() {
 
             @Override
             protected Void doInBackground() {
+
                 simulacionServicio.iniciar();
                 return null;
             }
@@ -141,9 +183,18 @@ public class VentanaPrincipal {
             protected void done() {
 
                 try {
+
                     get();
 
-                    estadoSimulacion.setText("Simulación en ejecución");
+                    panelEntradas.iniciarActualizador();
+                    panelEstacionamiento.iniciarActualizador();
+                    panelBuscando.iniciarActualizador();
+                    panelActividad.iniciarActualizador();
+
+                    estadoSimulacion.setText(
+                            "Simulación en ejecución"
+                    );
+
                     botonFinalizar.setEnabled(true);
 
                 } catch (Exception e) {
@@ -181,6 +232,7 @@ public class VentanaPrincipal {
 
             @Override
             protected Void doInBackground() {
+
                 simulacionServicio.detener();
                 return null;
             }
@@ -189,9 +241,18 @@ public class VentanaPrincipal {
             protected void done() {
 
                 try {
+
                     get();
 
-                    estadoSimulacion.setText("Simulación finalizada");
+                    // Detenemos todos los temporizadores de la interfaz.
+                    panelEntradas.detenerActualizador();
+                    panelEstacionamiento.detenerActualizador();
+                    panelBuscando.detenerActualizador();
+                    panelActividad.detenerActualizador();
+
+                    estadoSimulacion.setText(
+                            "Simulación finalizada"
+                    );
 
                     botonIniciar.setEnabled(false);
 
@@ -223,3 +284,4 @@ public class VentanaPrincipal {
         tarea.execute();
     }
 }
+

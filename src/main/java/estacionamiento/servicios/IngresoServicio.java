@@ -18,6 +18,8 @@ public class IngresoServicio {
     private final ProgramadorSalidasServicio programadorSalidasServicio;
     private final VehiculoRepo vehiculoRepo;
     private final MonitorEntradaServicio monitorEntradaServicio;
+    private final VehiculosBuscandoServicio vehiculosBuscandoServicio;
+    private final ActividadServicio actividadServicio;
 
     private final ExecutorService executor =
             Executors.newFixedThreadPool(9);
@@ -26,12 +28,16 @@ public class IngresoServicio {
             EstacionamientoServicio estacionamientoServicio,
             ProgramadorSalidasServicio programadorSalidasServicio,
             VehiculoRepo vehiculoRepo,
-            MonitorEntradaServicio monitorEntradaServicio
+            MonitorEntradaServicio monitorEntradaServicio,
+            VehiculosBuscandoServicio vehiculosBuscandoServicio,
+            ActividadServicio actividadServicio
     ) {
         this.estacionamientoServicio = estacionamientoServicio;
         this.programadorSalidasServicio = programadorSalidasServicio;
         this.vehiculoRepo = vehiculoRepo;
         this.monitorEntradaServicio = monitorEntradaServicio;
+        this.vehiculosBuscandoServicio = vehiculosBuscandoServicio;
+        this.actividadServicio = actividadServicio;
     }
 
     public void procesarIngresos(
@@ -79,6 +85,13 @@ public class IngresoServicio {
                         CompletableFuture.runAsync(() -> {
 
                             try {
+
+                                vehiculosBuscandoServicio.iniciarBusqueda(matricula);
+
+                                actividadServicio.registrar(
+                                        matricula + " comenzó a buscar un lugar"
+                                );
+
                                 boolean ingresoExitoso =
                                         estacionamientoServicio.buscarLugar(
                                                 matricula,
@@ -86,16 +99,19 @@ public class IngresoServicio {
                                         );
 
                                 if (ingresoExitoso) {
-                                    programadorSalidasServicio
-                                            .programarSalida(matricula);
+                                    programadorSalidasServicio.programarSalida(matricula);
                                 }
 
                             } catch (Exception e) {
+
                                 System.err.println(
                                         "Error al intentar ingresar el vehículo "
-                                                + matricula + ": "
-                                                + e.getMessage()
+                                                + matricula + ": " + e.getMessage()
                                 );
+
+                            } finally {
+
+                                vehiculosBuscandoServicio.finalizarBusqueda(matricula);
                             }
 
                         }, executor);

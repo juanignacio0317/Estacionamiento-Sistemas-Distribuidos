@@ -19,6 +19,7 @@ public class SalidaServicio {
     private final SectorRepo sectorRepo;
     private final VehiculoRepo vehiculoRepo;
     private final EstacionamientoServicio estacionamientoServicio;
+    private final ActividadServicio actividadServicio;
 
     public SalidaServicio(
             EstadiaRepo estadiaRepo,
@@ -26,7 +27,8 @@ public class SalidaServicio {
             ZonaRepo zonaRepo,
             SectorRepo sectorRepo,
             VehiculoRepo vehiculoRepo,
-            EstacionamientoServicio estacionamientoServicio
+            EstacionamientoServicio estacionamientoServicio,
+            ActividadServicio actividadServicio
     ) {
         this.estadiaRepo = estadiaRepo;
         this.entradaRepo = entradaRepo;
@@ -34,6 +36,7 @@ public class SalidaServicio {
         this.sectorRepo = sectorRepo;
         this.vehiculoRepo = vehiculoRepo;
         this.estacionamientoServicio = estacionamientoServicio;
+        this.actividadServicio = actividadServicio;
     }
 
     @Transactional
@@ -85,6 +88,10 @@ public class SalidaServicio {
         vehiculo.setEntradaIngreso(null);
 
         vehiculoRepo.save(vehiculo);
+
+        actividadServicio.registrar(
+                matricula + " dejó el estacionamiento"
+        );
 
         return true;
     }

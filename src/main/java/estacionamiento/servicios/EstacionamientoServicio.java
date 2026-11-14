@@ -25,6 +25,7 @@ public class EstacionamientoServicio {
     private final ZonaRepo zonaRepo;
     private final SectorRepo sectorRepo;
     private final ApplicationEventPublisher eventPublisher;
+    private final ActividadServicio actividadServicio;
 
     public EstacionamientoServicio(
             LugarRepo lugarRepo,
@@ -33,7 +34,8 @@ public class EstacionamientoServicio {
             EntradaRepo entradaRepo,
             ZonaRepo zonaRepo,
             SectorRepo sectorRepo,
-            ApplicationEventPublisher eventPublisher
+            ApplicationEventPublisher eventPublisher,
+            ActividadServicio actividadServicio
     ) {
         this.lugarRepo = lugarRepo;
         this.estadiaRepo = estadiaRepo;
@@ -42,6 +44,7 @@ public class EstacionamientoServicio {
         this.zonaRepo = zonaRepo;
         this.sectorRepo = sectorRepo;
         this.eventPublisher = eventPublisher;
+        this.actividadServicio = actividadServicio;
     }
 
     public long cantidadLugaresLibres() {
@@ -133,6 +136,11 @@ public class EstacionamientoServicio {
 
         vehiculoRepo.save(vehiculo);
 
+        actividadServicio.registrar(
+                matricula + " estacionó en el lugar "
+                        + lugarEncontrado.getNumero()
+        );
+
         return true;
     }
 
@@ -154,6 +162,8 @@ public class EstacionamientoServicio {
         vehiculo.setEntradaIngreso(null);
 
         vehiculoRepo.save(vehiculo);
+
+
 
         return true;
     }
