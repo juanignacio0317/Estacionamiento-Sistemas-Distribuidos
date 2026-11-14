@@ -1,5 +1,3 @@
-
-
 package estacionamiento.servicios;
 
 import estacionamiento.entidades.*;
@@ -46,6 +44,11 @@ public class EstacionamientoServicio {
 
     public long cantidadLugaresLibres() {
         return lugarRepo.countByEstado(EstadoLugar.LIBRE);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Lugar> obtenerLugares() {
+        return lugarRepo.findAllByOrderByNumeroAsc();
     }
 
     @Transactional

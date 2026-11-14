@@ -22,4 +22,6 @@ public interface LugarRepo extends JpaRepository<Lugar, Long> {
     ORDER BY l.numero ASC
 """)
     List<Lugar> buscarTodosBloqueados();
+
+    List<Lugar> findAllByOrderByNumeroAsc();
 }

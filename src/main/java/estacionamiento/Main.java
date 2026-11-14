@@ -1,30 +1,37 @@
+
 package estacionamiento;
 
 import estacionamiento.servicios.InicializacionServicio;
-import estacionamiento.servicios.SimulacionServicio;
 import estacionamiento.servicios.VehiculoServicio;
+import estacionamiento.rabbit.DisponibilidadProductor;
+import estacionamiento.ui.VentanaPrincipal;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import estacionamiento.rabbit.DisponibilidadProductor;
-import estacionamiento.rabbit.MonitorEntradaServicio;
+import javax.swing.SwingUtilities;
 
 @SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
-    }
 
+        SpringApplication aplicacion =
+                new SpringApplication(Main.class);
+
+        aplicacion.setHeadless(false);
+
+        aplicacion.run(args);
+    }
 
     @Bean
     public CommandLineRunner inicializar(
             VehiculoServicio vehiculoServicio,
             InicializacionServicio inicializacionServicio,
-            SimulacionServicio simulacionServicio,
-            DisponibilidadProductor disponibilidadProductor
+            DisponibilidadProductor disponibilidadProductor,
+            VentanaPrincipal ventanaPrincipal
     ) {
         return args -> {
 
@@ -34,15 +41,16 @@ public class Main {
 
             inicializacionServicio.inicializar();
 
-            System.out.println("========== INICIALIZACION COMPLETA ==========");
+            System.out.println(
+                    "========== INICIALIZACION COMPLETA =========="
+            );
 
             // Publica la disponibilidad inicial para las tres entradas.
             disponibilidadProductor.publicarDisponibilidadActual();
 
-            simulacionServicio.iniciar();
+            // Abre la interfaz Swing.
+            SwingUtilities.invokeLater(ventanaPrincipal::mostrar);
 
-            System.out.println("========== SIMULACION INICIADA ==========");
         };
     }
-
 }

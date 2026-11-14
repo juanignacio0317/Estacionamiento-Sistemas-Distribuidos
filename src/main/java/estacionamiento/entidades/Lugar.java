@@ -1,4 +1,3 @@
-
 package estacionamiento.entidades;
 import estacionamiento.estados.EstadoLugar;
 import jakarta.persistence.*;
