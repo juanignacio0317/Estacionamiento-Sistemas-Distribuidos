@@ -88,6 +88,11 @@ public class PanelAdministrador extends JPanel {
                 new PanelCierre()
         );
 
+        pestañas.addTab(
+                "Analítica",
+                new PanelAnalitica()
+        );
+
         add(pestañas, BorderLayout.CENTER);
     }
 
