@@ -1,0 +1,665 @@
+[02:41:39] Se reservó el lugar 23
+[02:41:43] MNI7078 dejó el estacionamiento
+[02:41:44] EYC9003 comenzó a buscar un lugar
+[02:41:44] BDQ5498 comenzó a buscar un lugar
+[02:41:44] AAL9890 comenzó a buscar un lugar
+[02:41:44] BDQ5498 estacionó en el lugar 63
+[02:41:44] LTP1394 dejó el estacionamiento
+[02:41:44] KOB6661 dejó el estacionamiento
+[02:41:44] IUU8160 dejó el estacionamiento
+[02:41:44] PVX4206 dejó el estacionamiento
+[02:41:45] BLH6926 comenzó a buscar un lugar
+[02:41:45] VXG4570 comenzó a buscar un lugar
+[02:41:45] ECQ1685 comenzó a buscar un lugar
+[02:41:45] PUN9545 comenzó a buscar un lugar
+[02:41:45] TEZ5235 comenzó a buscar un lugar
+[02:41:45] BJT0045 comenzó a buscar un lugar
+[02:41:45] AMW1475 comenzó a buscar un lugar
+[02:41:45] DNF6310 comenzó a buscar un lugar
+[02:41:45] RDX3618 comenzó a buscar un lugar
+[02:41:45] BLH6926 estacionó en el lugar 65
+[02:41:45] CDJ6550 comenzó a buscar un lugar
+[02:41:45] VXG4570 estacionó en el lugar 72
+[02:41:45] DOR2134 comenzó a buscar un lugar
+[02:41:45] ECQ1685 estacionó en el lugar 4
+[02:41:45] YJP5751 comenzó a buscar un lugar
+[02:41:45] PUN9545 estacionó en el lugar 97
+[02:41:45] BUE1973 dejó el estacionamiento
+[02:41:45] AXE9349 dejó el estacionamiento
+[02:41:46] IID1362 dejó el estacionamiento
+[02:41:46] JSY8319 dejó el estacionamiento
+[02:41:46] EYG2633 dejó el estacionamiento
+[02:41:46] ADF3760 dejó el estacionamiento
+[02:41:46] ANY5469 dejó el estacionamiento
+[02:41:46] GOQ7441 comenzó a buscar un lugar
+[02:41:46] FSH3786 comenzó a buscar un lugar
+[02:41:46] RHU9621 comenzó a buscar un lugar
+[02:41:46] CAS4811 comenzó a buscar un lugar
+[02:41:46] OJR2686 comenzó a buscar un lugar
+[02:41:46] VDA8717 comenzó a buscar un lugar
+[02:41:46] GKH2055 comenzó a buscar un lugar
+[02:41:46] BCR1369 comenzó a buscar un lugar
+[02:41:46] EEN3819 comenzó a buscar un lugar
+[02:41:46] BCR1369 estacionó en el lugar 42
+[02:41:46] IAI1114 comenzó a buscar un lugar
+[02:41:46] RHU9621 estacionó en el lugar 6
+[02:41:46] BGW6828 comenzó a buscar un lugar
+[02:41:46] GKH2055 estacionó en el lugar 70
+[02:41:46] IQM3412 comenzó a buscar un lugar
+[02:41:46] FSH3786 estacionó en el lugar 16
+[02:41:46] AXN4627 comenzó a buscar un lugar
+[02:41:46] IAI1114 estacionó en el lugar 76
+[02:41:46] FGL8647 comenzó a buscar un lugar
+[02:41:46] GOQ7441 estacionó en el lugar 32
+[02:41:46] KNX2125 comenzó a buscar un lugar
+[02:41:46] BGW6828 estacionó en el lugar 78
+[02:41:46] ASU1036 comenzó a buscar un lugar
+[02:41:46] CLD1419 comenzó a buscar un lugar
+[02:41:46] KUF8678 comenzó a buscar un lugar
+[02:41:46] XTM1193 comenzó a buscar un lugar
+[02:41:46] SXK7946 comenzó a buscar un lugar
+[02:41:46] GWN0556 comenzó a buscar un lugar
+[02:41:47] FTE7191 dejó el estacionamiento
+[02:41:47] LME9092 dejó el estacionamiento
+[02:41:47] EVX8162 comenzó a buscar un lugar
+[02:41:47] IPY1364 comenzó a buscar un lugar
+[02:41:47] OYN3857 comenzó a buscar un lugar
+[02:41:47] RQQ0967 comenzó a buscar un lugar
+[02:41:47] QFL7912 comenzó a buscar un lugar
+[02:41:47] KCE5887 comenzó a buscar un lugar
+[02:41:47] RQQ0967 estacionó en el lugar 82
+[02:41:48] EVX8162 estacionó en el lugar 86
+[02:41:48] FSD6626 dejó el estacionamiento
+[02:41:48] FCL0546 dejó el estacionamiento
+[02:41:49] KBP6767 comenzó a buscar un lugar
+[02:41:49] EJZ8854 comenzó a buscar un lugar
+[02:41:49] NOU8956 comenzó a buscar un lugar
+[02:41:49] SXK7946 comenzó a buscar un lugar
+[02:41:49] BBZ3122 comenzó a buscar un lugar
+[02:41:49] NVK1643 comenzó a buscar un lugar
+[02:41:49] NVK1643 estacionó en el lugar 13
+[02:41:49] SXK7946 estacionó en el lugar 95
+[02:41:49] XYJ9871 dejó el estacionamiento
+[02:41:49] BQQ6304 dejó el estacionamiento
+[02:41:49] Se canceló la reserva del lugar 23
+[02:41:50] YMV1643 comenzó a buscar un lugar
+[02:41:50] DVY7601 comenzó a buscar un lugar
+[02:41:50] XBU1683 comenzó a buscar un lugar
+[02:41:50] BAS5533 comenzó a buscar un lugar
+[02:41:50] LSU6307 comenzó a buscar un lugar
+[02:41:50] JHZ6219 comenzó a buscar un lugar
+[02:41:50] LSU6307 estacionó en el lugar 83
+[02:41:50] XBU1683 estacionó en el lugar 3
+[02:41:50] DQT0287 dejó el estacionamiento
+[02:41:51] MNT0576 comenzó a buscar un lugar
+[02:41:51] WVC8643 comenzó a buscar un lugar
+[02:41:51] NFJ9872 comenzó a buscar un lugar
+[02:41:51] WVC8643 estacionó en el lugar 14
+[02:41:51] FOX0319 dejó el estacionamiento
+[02:41:51] JAY7475 dejó el estacionamiento
+[02:41:51] LBG1661 dejó el estacionamiento
+[02:41:51] VYV3394 dejó el estacionamiento
+[02:41:52] UAJ6467 dejó el estacionamiento
+[02:41:52] HZT9892 dejó el estacionamiento
+[02:41:52] VHA1580 dejó el estacionamiento
+[02:41:52] PJG4680 dejó el estacionamiento
+[02:41:52] ARI4958 comenzó a buscar un lugar
+[02:41:52] KKZ9203 comenzó a buscar un lugar
+[02:41:52] SPT0690 comenzó a buscar un lugar
+[02:41:52] NTV6334 comenzó a buscar un lugar
+[02:41:52] CKF0348 comenzó a buscar un lugar
+[02:41:52] EWM7339 comenzó a buscar un lugar
+[02:41:52] LUA9734 comenzó a buscar un lugar
+[02:41:52] CKG0254 comenzó a buscar un lugar
+[02:41:52] WAZ5356 comenzó a buscar un lugar
+[02:41:52] SPT0690 estacionó en el lugar 8
+[02:41:52] PGG0980 comenzó a buscar un lugar
+[02:41:52] CKG0254 estacionó en el lugar 87
+[02:41:52] KPE3783 comenzó a buscar un lugar
+[02:41:52] LUA9734 estacionó en el lugar 11
+[02:41:52] DEL0786 comenzó a buscar un lugar
+[02:41:52] PGG0980 estacionó en el lugar 90
+[02:41:52] HMJ3604 comenzó a buscar un lugar
+[02:41:52] ARI4958 estacionó en el lugar 12
+[02:41:52] VFN7759 comenzó a buscar un lugar
+[02:41:52] KPE3783 estacionó en el lugar 96
+[02:41:52] SWP6967 comenzó a buscar un lugar
+[02:41:52] EWM7339 estacionó en el lugar 28
+[02:41:52] LRI2826 comenzó a buscar un lugar
+[02:41:52] DEL0786 estacionó en el lugar 98
+[02:41:52] JMP9423 comenzó a buscar un lugar
+[02:41:52] NFJ9872 comenzó a buscar un lugar
+[02:41:52] OKT9405 comenzó a buscar un lugar
+[02:41:52] RPB5975 comenzó a buscar un lugar
+[02:41:52] ASU1036 comenzó a buscar un lugar
+[02:41:52] YMV1643 comenzó a buscar un lugar
+[02:41:52] IOE9407 comenzó a buscar un lugar
+[02:41:52] KUF8678 comenzó a buscar un lugar
+[02:41:54] GCR6679 dejó el estacionamiento
+[02:41:55] ITZ2737 comenzó a buscar un lugar
+[02:41:55] LQC1082 comenzó a buscar un lugar
+[02:41:55] IHJ6188 comenzó a buscar un lugar
+[02:41:55] LQC1082 estacionó en el lugar 73
+[02:41:55] JNJ6165 dejó el estacionamiento
+[02:41:55] FYT3262 dejó el estacionamiento
+[02:41:56] GHS8757 comenzó a buscar un lugar
+[02:41:56] DON7648 comenzó a buscar un lugar
+[02:41:56] LUL1138 comenzó a buscar un lugar
+[02:41:56] JQN1597 comenzó a buscar un lugar
+[02:41:56] TXY1040 comenzó a buscar un lugar
+[02:41:56] ATZ0739 comenzó a buscar un lugar
+[02:41:56] DON7648 estacionó en el lugar 25
+[02:41:56] GHS8757 estacionó en el lugar 39
+[02:41:56] JHL4410 dejó el estacionamiento
+[02:41:56] PNP0679 dejó el estacionamiento
+[02:41:56] GGE2104 dejó el estacionamiento
+[02:41:56] CRH2851 dejó el estacionamiento
+[02:41:56] DAO8741 dejó el estacionamiento
+[02:41:56] NCC7393 dejó el estacionamiento
+[02:41:56] VJP4552 dejó el estacionamiento
+[02:41:56] UEX9808 dejó el estacionamiento
+[02:41:57] IDT3596 comenzó a buscar un lugar
+[02:41:57] YKV1843 comenzó a buscar un lugar
+[02:41:57] MLP3916 comenzó a buscar un lugar
+[02:41:57] OTX2058 comenzó a buscar un lugar
+[02:41:57] POT8652 comenzó a buscar un lugar
+[02:41:57] NLP8817 comenzó a buscar un lugar
+[02:41:57] TNL9989 comenzó a buscar un lugar
+[02:41:57] TGU1723 comenzó a buscar un lugar
+[02:41:57] GGR9211 comenzó a buscar un lugar
+[02:41:57] YKV1843 estacionó en el lugar 5
+[02:41:57] PKX7734 comenzó a buscar un lugar
+[02:41:57] TNL9989 estacionó en el lugar 40
+[02:41:57] QZT4227 comenzó a buscar un lugar
+[02:41:57] POT8652 estacionó en el lugar 10
+[02:41:57] XNR5000 comenzó a buscar un lugar
+[02:41:57] PKX7734 estacionó en el lugar 50
+[02:41:57] AZC4579 comenzó a buscar un lugar
+[02:41:57] GGR9211 estacionó en el lugar 30
+[02:41:57] UNP4918 comenzó a buscar un lugar
+[02:41:57] QZT4227 estacionó en el lugar 58
+[02:41:57] HKX6907 comenzó a buscar un lugar
+[02:41:57] MLP3916 estacionó en el lugar 66
+[02:41:57] EEK9587 comenzó a buscar un lugar
+[02:41:57] XNR5000 estacionó en el lugar 69
+[02:41:57] AUJ8056 comenzó a buscar un lugar
+[02:41:57] WWO2759 comenzó a buscar un lugar
+[02:41:57] NFJ9872 comenzó a buscar un lugar
+[02:41:57] WRP5855 comenzó a buscar un lugar
+[02:41:57] QFL7912 comenzó a buscar un lugar
+[02:41:57] AJX2199 comenzó a buscar un lugar
+[02:41:57] IHJ6188 comenzó a buscar un lugar
+[02:41:57] AKA8232 comenzó a buscar un lugar
+[02:41:57] CBX0725 dejó el estacionamiento
+[02:41:57] AJX2199 estacionó en el lugar 94
+[02:41:58] VZV9964 dejó el estacionamiento
+[02:41:58] OOC6508 dejó el estacionamiento
+[02:41:58] KMT7404 dejó el estacionamiento
+[02:41:58] KCY1452 dejó el estacionamiento
+[02:41:58] ONB6008 comenzó a buscar un lugar
+[02:41:58] AFT7263 comenzó a buscar un lugar
+[02:41:58] OSC4252 comenzó a buscar un lugar
+[02:41:58] IGP3722 comenzó a buscar un lugar
+[02:41:58] ATZ0739 comenzó a buscar un lugar
+[02:41:58] VSI9561 comenzó a buscar un lugar
+[02:41:58] AJC2807 comenzó a buscar un lugar
+[02:41:58] ICN6338 comenzó a buscar un lugar
+[02:41:58] YVO6898 comenzó a buscar un lugar
+[02:41:58] ONB6008 estacionó en el lugar 2
+[02:41:58] IOH9185 comenzó a buscar un lugar
+[02:41:58] YVO6898 estacionó en el lugar 77
+[02:41:58] VEV8554 comenzó a buscar un lugar
+[02:41:58] ATZ0739 estacionó en el lugar 7
+[02:41:58] JMP9423 comenzó a buscar un lugar
+[02:41:58] OSC4252 estacionó en el lugar 26
+[02:41:59] ILO1103 dejó el estacionamiento
+[02:41:59] YMV1643 comenzó a buscar un lugar
+[02:41:59] CDB9770 comenzó a buscar un lugar
+[02:41:59] FSC6644 comenzó a buscar un lugar
+[02:41:59] CDB9770 estacionó en el lugar 35
+[02:42:00] XUN8120 dejó el estacionamiento
+[02:42:01] LRI2826 comenzó a buscar un lugar
+[02:42:01] TEZ5235 comenzó a buscar un lugar
+[02:42:01] TRZ4028 comenzó a buscar un lugar
+[02:42:01] TEZ5235 estacionó en el lugar 59
+[02:42:01] YDV0845 dejó el estacionamiento
+[02:42:01] LVV2575 dejó el estacionamiento
+[02:42:01] ILX8890 dejó el estacionamiento
+[02:42:01] HKB7431 dejó el estacionamiento
+[02:42:02] FMI4666 comenzó a buscar un lugar
+[02:42:02] ALY2047 comenzó a buscar un lugar
+[02:42:02] MET4795 comenzó a buscar un lugar
+[02:42:02] ANY5469 comenzó a buscar un lugar
+[02:42:02] XBM1138 comenzó a buscar un lugar
+[02:42:02] FOD4612 comenzó a buscar un lugar
+[02:42:02] AFG3076 comenzó a buscar un lugar
+[02:42:02] IAL5017 comenzó a buscar un lugar
+[02:42:02] WIE5389 comenzó a buscar un lugar
+[02:42:02] FMI4666 estacionó en el lugar 34
+[02:42:02] TRZ4028 comenzó a buscar un lugar
+[02:42:02] ANY5469 estacionó en el lugar 15
+[02:42:02] WRP5855 comenzó a buscar un lugar
+[02:42:02] XBM1138 estacionó en el lugar 81
+[02:42:02] IOE9407 comenzó a buscar un lugar
+[02:42:02] FOD4612 estacionó en el lugar 62
+[02:57:57] MLS0034 dejó el estacionamiento
+[02:57:57] LUA9734 dejó el estacionamiento
+[02:57:57] PWC7203 dejó el estacionamiento
+[02:57:58] BQQ6304 comenzó a buscar un lugar
+[02:57:58] TXY1040 comenzó a buscar un lugar
+[02:57:58] CQU6796 comenzó a buscar un lugar
+[02:57:58] DBO3310 comenzó a buscar un lugar
+[02:57:58] DRN9232 comenzó a buscar un lugar
+[02:57:58] QOU2926 comenzó a buscar un lugar
+[02:57:58] KNX2125 comenzó a buscar un lugar
+[02:57:58] AAO9055 comenzó a buscar un lugar
+[02:57:58] GWN0556 comenzó a buscar un lugar
+[02:57:58] CQU6796 estacionó en el lugar 11
+[02:57:58] KNX2125 estacionó en el lugar 74
+[02:57:58] TXY1040 estacionó en el lugar 53
+[02:57:58] DEL0786 dejó el estacionamiento
+[02:57:58] FSH3786 dejó el estacionamiento
+[02:57:58] EWM7339 dejó el estacionamiento
+[02:57:59] BGW6828 dejó el estacionamiento
+[02:57:59] SPT0690 dejó el estacionamiento
+[02:57:59] GAK2501 comenzó a buscar un lugar
+[02:57:59] BLD9369 comenzó a buscar un lugar
+[02:57:59] GSK3694 comenzó a buscar un lugar
+[02:57:59] RPB5975 comenzó a buscar un lugar
+[02:57:59] ASU1036 comenzó a buscar un lugar
+[02:57:59] WXS5591 comenzó a buscar un lugar
+[02:57:59] XVB6321 comenzó a buscar un lugar
+[02:57:59] OUG8454 comenzó a buscar un lugar
+[02:57:59] QTI4769 comenzó a buscar un lugar
+[02:57:59] TMQ6904 dejó el estacionamiento
+[02:57:59] QTI4769 estacionó en el lugar 78
+[02:57:59] GSK3694 estacionó en el lugar 75
+[02:57:59] WCT6475 dejó el estacionamiento
+[02:57:59] RPB5975 estacionó en el lugar 98
+[02:57:59] WXS5591 estacionó en el lugar 88
+[02:57:59] ASU1036 estacionó en el lugar 8
+[02:57:59] GAK2501 estacionó en el lugar 16
+[02:57:59] XVB6321 estacionó en el lugar 28
+[02:58:00] YVO6898 dejó el estacionamiento
+[02:58:00] LSU6307 dejó el estacionamiento
+[02:58:01] IOH9185 comenzó a buscar un lugar
+[02:58:01] BAA1769 comenzó a buscar un lugar
+[02:58:01] LSK4903 comenzó a buscar un lugar
+[02:58:01] KUF8678 comenzó a buscar un lugar
+[02:58:01] EEK9587 comenzó a buscar un lugar
+[02:58:01] CIB5726 comenzó a buscar un lugar
+[02:58:01] EEK9587 estacionó en el lugar 77
+[02:58:01] IOH9185 estacionó en el lugar 83
+[02:58:01] DMV9508 dejó el estacionamiento
+[02:58:01] RHU9621 dejó el estacionamiento
+[02:58:02] NFJ9872 comenzó a buscar un lugar
+[02:58:02] BZU6670 comenzó a buscar un lugar
+[02:58:02] VAP0217 comenzó a buscar un lugar
+[02:58:02] FBU7128 comenzó a buscar un lugar
+[02:58:02] XMS3669 comenzó a buscar un lugar
+[02:58:02] AKA8232 comenzó a buscar un lugar
+[02:58:02] XMS3669 estacionó en el lugar 79
+[02:58:02] NFJ9872 estacionó en el lugar 6
+[02:58:02] EVX8162 dejó el estacionamiento
+[02:58:02] QRC4959 dejó el estacionamiento
+[02:58:02] GGR9211 dejó el estacionamiento
+[02:58:03] FZL5101 dejó el estacionamiento
+[02:58:03] FMF9922 dejó el estacionamiento
+[02:58:04] TQE8569 comenzó a buscar un lugar
+[02:58:04] AUK8937 comenzó a buscar un lugar
+[02:58:04] WAZ5356 comenzó a buscar un lugar
+[02:58:04] FJD3330 comenzó a buscar un lugar
+[02:58:04] JAY7475 comenzó a buscar un lugar
+[02:58:04] COW8150 comenzó a buscar un lugar
+[02:58:04] FTA5069 comenzó a buscar un lugar
+[02:58:04] HKX6907 comenzó a buscar un lugar
+[02:58:04] VZV9964 comenzó a buscar un lugar
+[02:58:04] WAZ5356 estacionó en el lugar 18
+[02:58:04] UMH5811 comenzó a buscar un lugar
+[02:58:04] FJD3330 estacionó en el lugar 86
+[02:58:04] IHJ6188 comenzó a buscar un lugar
+[02:58:04] TQE8569 estacionó en el lugar 19
+[02:58:04] MLR7987 comenzó a buscar un lugar
+[02:58:04] COW8150 estacionó en el lugar 30
+[02:58:04] CEY2036 comenzó a buscar un lugar
+[02:58:04] AUK8937 estacionó en el lugar 31
+[02:58:04] DGF1660 comenzó a buscar un lugar
+[02:58:04] WRP5855 comenzó a buscar un lugar
+[02:58:04] WVC8643 dejó el estacionamiento
+[02:58:05] JMP9423 comenzó a buscar un lugar
+[02:58:05] LKW0356 comenzó a buscar un lugar
+[02:58:05] SKZ7349 comenzó a buscar un lugar
+[02:58:05] SKZ7349 estacionó en el lugar 14
+[02:58:05] VXG4570 dejó el estacionamiento
+[02:58:06] MPH6907 dejó el estacionamiento
+[02:58:06] OSC4252 dejó el estacionamiento
+[02:58:07] ERE0832 comenzó a buscar un lugar
+[02:58:07] IOE9407 comenzó a buscar un lugar
+[02:58:07] CHK4160 comenzó a buscar un lugar
+[02:58:07] VHA1580 comenzó a buscar un lugar
+[02:58:07] MGY9297 comenzó a buscar un lugar
+[02:58:07] EXP6196 comenzó a buscar un lugar
+[02:58:07] IPY1364 comenzó a buscar un lugar
+[02:58:07] AEP8883 comenzó a buscar un lugar
+[02:58:07] SSW0043 comenzó a buscar un lugar
+[02:58:07] AEP8883 estacionó en el lugar 72
+[02:58:07] IOE9407 estacionó en el lugar 26
+[02:58:07] IPY1364 estacionó en el lugar 29
+[02:58:07] CWS3291 dejó el estacionamiento
+[02:58:07] EZM5954 dejó el estacionamiento
+[02:58:07] XBM1138 dejó el estacionamiento
+[02:58:08] NMG8514 comenzó a buscar un lugar
+[02:58:08] KKZ9203 comenzó a buscar un lugar
+[02:58:08] CEY2036 comenzó a buscar un lugar
+[02:58:08] YMV1643 comenzó a buscar un lugar
+[02:58:08] ITZ2737 comenzó a buscar un lugar
+[02:58:08] UNP4918 comenzó a buscar un lugar
+[02:58:08] NRO0719 comenzó a buscar un lugar
+[02:58:08] OKT9405 comenzó a buscar un lugar
+[02:58:08] BVR5609 comenzó a buscar un lugar
+[02:58:08] KKZ9203 estacionó en el lugar 27
+[02:58:08] OKT9405 estacionó en el lugar 81
+[02:58:08] BVR5609 estacionó en el lugar 99
+[02:58:08] PDT7871 dejó el estacionamiento
+[02:58:09] DGF1660 comenzó a buscar un lugar
+[02:58:09] AAS2223 comenzó a buscar un lugar
+[02:58:09] UAJ6467 comenzó a buscar un lugar
+[02:58:09] DGF1660 estacionó en el lugar 85
+[02:58:10] BRL2733 dejó el estacionamiento
+[02:58:11] KUF8678 comenzó a buscar un lugar
+[02:58:11] ATS3873 comenzó a buscar un lugar
+[02:58:11] KCE5887 comenzó a buscar un lugar
+[02:58:11] ATS3873 estacionó en el lugar 71
+[02:58:11] FOD4612 dejó el estacionamiento
+[02:58:11] UWV2735 dejó el estacionamiento
+[02:58:11] MAS2118 dejó el estacionamiento
+[02:58:11] PGG0980 dejó el estacionamiento
+[02:58:11] MXM4974 dejó el estacionamiento
+[02:58:11] HEY5446 dejó el estacionamiento
+[02:58:11] DLA3401 dejó el estacionamiento
+[02:58:11] HSH3366 dejó el estacionamiento
+[02:58:11] MCF5515 dejó el estacionamiento
+[02:58:12] PVX4206 comenzó a buscar un lugar
+[02:58:12] CAS4811 comenzó a buscar un lugar
+[02:58:12] NTN3111 comenzó a buscar un lugar
+[02:58:12] LWD4483 comenzó a buscar un lugar
+[02:58:12] OPX1894 comenzó a buscar un lugar
+[02:58:12] JSY8319 comenzó a buscar un lugar
+[02:58:12] EHZ8087 comenzó a buscar un lugar
+[02:58:12] FSD6626 comenzó a buscar un lugar
+[02:58:12] UNG1400 comenzó a buscar un lugar
+[02:58:12] JSY8319 estacionó en el lugar 17
+[02:58:12] RDX3618 comenzó a buscar un lugar
+[02:58:12] FSD6626 estacionó en el lugar 22
+[02:58:12] MNT0576 comenzó a buscar un lugar
+[02:58:12] EHZ8087 estacionó en el lugar 23
+[02:58:12] CIA7719 comenzó a buscar un lugar
+[02:58:12] RDX3618 estacionó en el lugar 47
+[02:58:12] FHZ6460 comenzó a buscar un lugar
+[02:58:12] PVX4206 estacionó en el lugar 48
+[02:58:12] VFN7759 comenzó a buscar un lugar
+[02:58:12] MNT0576 estacionó en el lugar 62
+[02:58:12] ADW6150 comenzó a buscar un lugar
+[02:58:12] LWD4483 estacionó en el lugar 80
+[02:58:12] ECR6929 comenzó a buscar un lugar
+[02:58:12] CIA7719 estacionó en el lugar 90
+[02:58:12] CFH6169 comenzó a buscar un lugar
+[02:58:12] CAS4811 estacionó en el lugar 91
+[02:58:12] NEJ0481 comenzó a buscar un lugar
+[02:58:12] AAS2223 comenzó a buscar un lugar
+[02:58:12] BBZ3122 comenzó a buscar un lugar
+[02:58:12] ABL3511 comenzó a buscar un lugar
+[02:58:12] QFL7912 comenzó a buscar un lugar
+[02:58:12] NYC1197 comenzó a buscar un lugar
+[02:58:12] IUU8160 comenzó a buscar un lugar
+[02:58:12] TRZ4028 comenzó a buscar un lugar
+[02:58:12] CUB3382 comenzó a buscar un lugar
+[02:58:12] AKA8232 comenzó a buscar un lugar
+[02:58:12] BGS0551 dejó el estacionamiento
+[02:58:12] GHS8757 dejó el estacionamiento
+[02:58:12] GOQ7441 dejó el estacionamiento
+[02:58:12] BTX8294 dejó el estacionamiento
+[02:58:12] JUE8999 dejó el estacionamiento
+[02:58:12] YKV1843 dejó el estacionamiento
+[02:58:12] XUF0745 dejó el estacionamiento
+[02:58:12] BDQ5498 dejó el estacionamiento
+[02:58:13] WIE5389 comenzó a buscar un lugar
+[02:58:13] NZX9725 comenzó a buscar un lugar
+[02:58:13] VDA8717 comenzó a buscar un lugar
+[02:58:13] PRK2922 comenzó a buscar un lugar
+[02:58:13] PNP0679 comenzó a buscar un lugar
+[02:58:13] WWD7658 comenzó a buscar un lugar
+[02:58:13] AAQ6519 comenzó a buscar un lugar
+[02:58:13] XAP8155 comenzó a buscar un lugar
+[02:58:13] BJT0045 comenzó a buscar un lugar
+[02:58:13] XAP8155 estacionó en el lugar 1
+[02:58:13] KCE5887 comenzó a buscar un lugar
+[02:58:13] PRK2922 estacionó en el lugar 39
+[02:58:13] USK5988 comenzó a buscar un lugar
+[02:58:13] BJT0045 estacionó en el lugar 5
+[02:58:13] LBG1661 comenzó a buscar un lugar
+[02:58:13] KCE5887 estacionó en el lugar 63
+[02:58:13] EWR4307 comenzó a buscar un lugar
+[02:58:13] WWD7658 estacionó en el lugar 9
+[02:58:13] ECR6929 comenzó a buscar un lugar
+[02:58:13] USK5988 estacionó en el lugar 64
+[02:58:13] LKE6736 comenzó a buscar un lugar
+[02:58:13] PNP0679 estacionó en el lugar 32
+[02:58:13] VFN7759 comenzó a buscar un lugar
+[02:58:13] LBG1661 estacionó en el lugar 100
+[02:58:13] YMV1643 comenzó a buscar un lugar
+[02:58:13] AKA8232 comenzó a buscar un lugar
+[02:58:13] BBZ3122 comenzó a buscar un lugar
+[02:58:13] QQJ0446 comenzó a buscar un lugar
+[02:58:13] WRP5855 comenzó a buscar un lugar
+[02:58:13] EXP6196 comenzó a buscar un lugar
+[02:58:13] ANW9523 comenzó a buscar un lugar
+[02:58:13] AUV5241 comenzó a buscar un lugar
+[02:58:13] PLG9303 dejó el estacionamiento
+[02:58:13] BXH3937 dejó el estacionamiento
+[02:58:14] DAR3869 dejó el estacionamiento
+[02:58:14] AJX2199 dejó el estacionamiento
+[02:58:15] MZI0009 comenzó a buscar un lugar
+[02:58:15] ABL3511 comenzó a buscar un lugar
+[02:58:15] EEN3819 comenzó a buscar un lugar
+[02:58:15] LTP1394 comenzó a buscar un lugar
+[02:58:15] ADW6150 comenzó a buscar un lugar
+[02:58:15] LKE6736 comenzó a buscar un lugar
+[02:58:15] FHZ6460 comenzó a buscar un lugar
+[02:58:15] AEE1665 comenzó a buscar un lugar
+[02:58:15] CPN1126 comenzó a buscar un lugar
+[02:58:15] EEN3819 estacionó en el lugar 20
+[02:58:15] JMP9423 comenzó a buscar un lugar
+[02:58:15] ABL3511 estacionó en el lugar 67
+[02:58:15] LUL1138 comenzó a buscar un lugar
+[02:58:15] ADW6150 estacionó en el lugar 94
+[02:58:15] AUJ8056 comenzó a buscar un lugar
+[02:58:15] AEE1665 estacionó en el lugar 24
+[02:58:15] GKH2055 dejó el estacionamiento
+[02:58:15] XPP3934 dejó el estacionamiento
+[02:58:16] LOJ5915 comenzó a buscar un lugar
+[02:58:16] ABE4941 comenzó a buscar un lugar
+[02:58:16] CEY2036 comenzó a buscar un lugar
+[02:58:16] VFN7759 comenzó a buscar un lugar
+[02:58:16] DQK7137 comenzó a buscar un lugar
+[02:58:16] IDT3596 comenzó a buscar un lugar
+[02:58:16] VFN7759 estacionó en el lugar 46
+[02:58:16] IDT3596 estacionó en el lugar 70
+[02:58:16] ECQ1685 dejó el estacionamiento
+[02:58:16] GJV6211 dejó el estacionamiento
+[02:58:17] DVY7601 comenzó a buscar un lugar
+[02:58:17] AUJ8056 comenzó a buscar un lugar
+[02:58:17] LKE6736 comenzó a buscar un lugar
+[02:58:17] FHZ6460 comenzó a buscar un lugar
+[02:58:17] ICN6338 comenzó a buscar un lugar
+[02:58:17] DQK7137 comenzó a buscar un lugar
+[02:58:17] AUJ8056 estacionó en el lugar 4
+[02:58:17] ICN6338 estacionó en el lugar 33
+[02:58:18] SXK7946 dejó el estacionamiento
+[02:58:18] CLD1419 comenzó a buscar un lugar
+[02:58:18] YVO6898 comenzó a buscar un lugar
+[02:58:18] IQM3412 comenzó a buscar un lugar
+[02:58:18] IQM3412 estacionó en el lugar 95
+[02:58:19] QZT4227 dejó el estacionamiento
+[02:58:19] KPE3783 dejó el estacionamiento
+[02:58:19] POT8652 dejó el estacionamiento
+[02:58:20] QQJ0446 comenzó a buscar un lugar
+[02:58:20] KBP6767 comenzó a buscar un lugar
+[02:58:20] CTC9020 comenzó a buscar un lugar
+[02:58:20] KBP6767 estacionó en el lugar 58
+[02:58:20] QQJ0446 estacionó en el lugar 96
+[02:58:20] CTC9020 estacionó en el lugar 10
+[03:21:29] IQM3412 dejó el estacionamiento
+[03:21:29] MNT0576 dejó el estacionamiento
+[03:21:29] ADW6150 dejó el estacionamiento
+[03:21:29] ABL3511 dejó el estacionamiento
+[03:21:29] RDX3618 dejó el estacionamiento
+[03:21:29] EEK9587 dejó el estacionamiento
+[03:21:29] YHJ7883 dejó el estacionamiento
+[03:21:30] VHA1580 comenzó a buscar un lugar
+[03:21:30] OUG8454 comenzó a buscar un lugar
+[03:21:30] DEL0786 comenzó a buscar un lugar
+[03:21:30] MAT0146 comenzó a buscar un lugar
+[03:21:30] NHG1278 comenzó a buscar un lugar
+[03:21:30] OJR2686 comenzó a buscar un lugar
+[03:21:30] CFH6169 comenzó a buscar un lugar
+[03:21:30] NZA5957 comenzó a buscar un lugar
+[03:21:30] EWR4307 comenzó a buscar un lugar
+[03:21:30] VHA1580 estacionó en el lugar 37
+[03:21:30] OUP6458 comenzó a buscar un lugar
+[03:21:30] EWR4307 estacionó en el lugar 47
+[03:21:30] BBL4010 comenzó a buscar un lugar
+[03:21:30] OUG8454 estacionó en el lugar 62
+[03:21:30] LVV2575 comenzó a buscar un lugar
+[03:21:30] CFH6169 estacionó en el lugar 67
+[03:21:30] VYV3394 comenzó a buscar un lugar
+[03:21:30] OJR2686 estacionó en el lugar 77
+[03:21:30] DAC8977 comenzó a buscar un lugar
+[03:21:30] OUP6458 estacionó en el lugar 94
+[03:21:30] CLD1419 comenzó a buscar un lugar
+[03:21:30] NHG1278 estacionó en el lugar 95
+[03:21:30] AUV5241 comenzó a buscar un lugar
+[03:21:30] CEY2036 comenzó a buscar un lugar
+[03:21:30] XUN8120 comenzó a buscar un lugar
+[03:21:30] WAZ5356 dejó el estacionamiento
+[03:21:30] CRH2851 comenzó a buscar un lugar
+[03:21:30] CLD1419 estacionó en el lugar 18
+[03:21:30] ANY5469 dejó el estacionamiento
+[03:21:30] CKA5554 comenzó a buscar un lugar
+[03:21:30] NZA5957 estacionó en el lugar 15
+[03:21:30] LUL1138 comenzó a buscar un lugar
+[03:21:31] BJT0045 dejó el estacionamiento
+[03:21:31] CKF0348 comenzó a buscar un lugar
+[03:21:31] CGH2247 comenzó a buscar un lugar
+[03:21:31] CKA5554 comenzó a buscar un lugar
+[03:21:31] CKF0348 estacionó en el lugar 5
+[03:21:33] PUN9545 dejó el estacionamiento
+[03:21:34] ICN6338 dejó el estacionamiento
+[03:21:34] AUK8937 dejó el estacionamiento
+[03:21:34] EZM5954 comenzó a buscar un lugar
+[03:21:34] XBM1138 comenzó a buscar un lugar
+[03:21:34] BRL2733 comenzó a buscar un lugar
+[03:21:34] AHP6922 comenzó a buscar un lugar
+[03:21:34] KOB6661 comenzó a buscar un lugar
+[03:21:34] VJP4552 comenzó a buscar un lugar
+[03:21:34] XTM1193 comenzó a buscar un lugar
+[03:21:34] AAS2223 comenzó a buscar un lugar
+[03:21:34] EII8222 comenzó a buscar un lugar
+[03:21:34] EZM5954 estacionó en el lugar 31
+[03:21:34] XTM1193 estacionó en el lugar 97
+[03:21:34] KOB6661 estacionó en el lugar 33
+[03:21:35] IOH9185 dejó el estacionamiento
+[03:21:35] QQJ0446 dejó el estacionamiento
+[03:21:36] BQQ6304 comenzó a buscar un lugar
+[03:21:36] BAA1769 comenzó a buscar un lugar
+[03:21:36] DAQ8545 comenzó a buscar un lugar
+[03:21:36] YIB0361 comenzó a buscar un lugar
+[03:21:36] TNM9836 comenzó a buscar un lugar
+[03:21:36] TRZ4028 comenzó a buscar un lugar
+[03:21:36] DAQ8545 estacionó en el lugar 83
+[03:21:36] YIB0361 estacionó en el lugar 96
+[03:21:36] CKG0254 dejó el estacionamiento
+[03:21:36] BVR5609 dejó el estacionamiento
+[03:21:36] CIA7719 dejó el estacionamiento
+[03:21:37] XMS3669 dejó el estacionamiento
+[03:21:37] NVK1643 dejó el estacionamiento
+[03:21:37] LSJ7101 dejó el estacionamiento
+[03:21:37] VXG4570 comenzó a buscar un lugar
+[03:21:37] AFT7263 comenzó a buscar un lugar
+[03:21:37] CBQ1497 comenzó a buscar un lugar
+[03:21:37] DLU5869 comenzó a buscar un lugar
+[03:21:37] WWO2759 comenzó a buscar un lugar
+[03:21:37] BGW6828 comenzó a buscar un lugar
+[03:21:37] LUL1138 comenzó a buscar un lugar
+[03:21:37] QIQ2159 comenzó a buscar un lugar
+[03:21:37] KCY1452 comenzó a buscar un lugar
+[03:21:37] CBQ1497 estacionó en el lugar 79
+[03:21:37] AFT7263 estacionó en el lugar 13
+[03:21:37] DLU5869 estacionó en el lugar 84
+[03:21:37] QIQ2159 estacionó en el lugar 87
+[03:21:37] VXG4570 estacionó en el lugar 90
+[03:21:37] WWO2759 estacionó en el lugar 99
+[03:21:38] MGP0041 dejó el estacionamiento
+[03:21:38] IOE9407 dejó el estacionamiento
+[03:21:38] TMQ6904 comenzó a buscar un lugar
+[03:21:38] LRI2826 comenzó a buscar un lugar
+[03:21:38] EXP6196 comenzó a buscar un lugar
+[03:21:38] TMQ6904 estacionó en el lugar 26
+[03:21:38] EXP6196 estacionó en el lugar 92
+[03:21:39] CAS4811 dejó el estacionamiento
+[03:21:39] CTC9020 dejó el estacionamiento
+[03:21:40] GCR6679 comenzó a buscar un lugar
+[03:21:40] UWV2735 comenzó a buscar un lugar
+[03:21:40] YMV1643 comenzó a buscar un lugar
+[03:21:40] TRZ4028 comenzó a buscar un lugar
+[03:21:40] FCL0546 comenzó a buscar un lugar
+[03:21:40] AZC4579 comenzó a buscar un lugar
+[03:21:40] UWV2735 estacionó en el lugar 10
+[03:21:40] FCL0546 estacionó en el lugar 91
+[03:21:40] EEN3819 dejó el estacionamiento
+[03:21:41] AUJ8056 dejó el estacionamiento
+[03:21:41] TQE8569 dejó el estacionamiento
+[03:21:41] PWC7203 comenzó a buscar un lugar
+[03:21:41] PGG0980 comenzó a buscar un lugar
+[03:21:41] LCN2507 comenzó a buscar un lugar
+[03:21:41] DBO3310 comenzó a buscar un lugar
+[03:21:41] AHP6922 comenzó a buscar un lugar
+[03:21:41] BOQ1503 comenzó a buscar un lugar
+[03:21:41] CHK4160 comenzó a buscar un lugar
+[03:21:41] QRC4959 comenzó a buscar un lugar
+[03:21:41] FOX0319 comenzó a buscar un lugar
+[03:21:41] BOQ1503 estacionó en el lugar 4
+[03:21:41] LCN2507 estacionó en el lugar 19
+[03:21:41] DBO3310 estacionó en el lugar 20
+[03:21:43] WWD7658 dejó el estacionamiento
+[03:21:43] WXS5591 dejó el estacionamiento
+[03:21:43] XBU1683 dejó el estacionamiento
+[03:21:43] CQU6796 dejó el estacionamiento
+[03:21:43] CDB9770 dejó el estacionamiento
+[03:21:43] USK5988 dejó el estacionamiento
+[03:21:44] EXG4932 comenzó a buscar un lugar
+[03:21:44] KPE3783 comenzó a buscar un lugar
+[03:21:44] VAP0217 comenzó a buscar un lugar
+[03:21:44] DAO8741 comenzó a buscar un lugar
+[03:21:44] IXY3486 comenzó a buscar un lugar
+[03:21:44] ALY2047 comenzó a buscar un lugar
+[03:21:44] PDT7871 comenzó a buscar un lugar
+[03:21:44] HSH3366 comenzó a buscar un lugar
+[03:21:44] ILX8890 comenzó a buscar un lugar
+[03:21:44] PDT7871 estacionó en el lugar 3
+[03:21:44] DGI6310 comenzó a buscar un lugar
+[03:21:44] DAO8741 estacionó en el lugar 35
+[03:21:44] TXS2013 comenzó a buscar un lugar
+[03:21:44] VAP0217 estacionó en el lugar 9
+[03:21:44] XYJ9871 comenzó a buscar un lugar
+[03:21:44] IXY3486 estacionó en el lugar 64
+[03:21:44] LUL1138 comenzó a buscar un lugar
+[03:21:44] KPE3783 estacionó en el lugar 11
+[03:21:44] BNV0023 comenzó a buscar un lugar
+[03:21:44] ALY2047 estacionó en el lugar 88
+[03:21:44] NEJ0481 comenzó a buscar un lugar
+[03:21:44] BVO0110 comenzó a buscar un lugar
+[03:21:44] AHP6922 comenzó a buscar un lugar
+[03:21:44] BBZ3122 comenzó a buscar un lugar
+[03:21:44] ATZ0739 dejó el estacionamiento
+[03:21:44] DON7648 dejó el estacionamiento
