@@ -20,6 +20,7 @@ public class IngresoServicio {
     private final MonitorEntradaServicio monitorEntradaServicio;
     private final VehiculosBuscandoServicio vehiculosBuscandoServicio;
     private final ActividadServicio actividadServicio;
+    private final EstadoEstacionamientoServicio estadoEstacionamientoServicio;
 
     private final ExecutorService executor =
             Executors.newFixedThreadPool(9);
@@ -30,7 +31,8 @@ public class IngresoServicio {
             VehiculoRepo vehiculoRepo,
             MonitorEntradaServicio monitorEntradaServicio,
             VehiculosBuscandoServicio vehiculosBuscandoServicio,
-            ActividadServicio actividadServicio
+            ActividadServicio actividadServicio,
+            EstadoEstacionamientoServicio estadoEstacionamientoServicio
     ) {
         this.estacionamientoServicio = estacionamientoServicio;
         this.programadorSalidasServicio = programadorSalidasServicio;
@@ -38,11 +40,15 @@ public class IngresoServicio {
         this.monitorEntradaServicio = monitorEntradaServicio;
         this.vehiculosBuscandoServicio = vehiculosBuscandoServicio;
         this.actividadServicio = actividadServicio;
+        this.estadoEstacionamientoServicio = estadoEstacionamientoServicio;
     }
 
     public void procesarIngresos(
             Map<Zona, List<Vehiculo>> candidatosPorZona
     ) {
+        if (!estadoEstacionamientoServicio.estanEntradasAbiertas()) {
+            return;
+        }
 
         List<CompletableFuture<Void>> tareas = new ArrayList<>();
 

@@ -30,7 +30,7 @@ public class Sector {
     public Sector(int numero, Zona zona) {
         this.numero = numero;
         this.zona = zona;
-        this.capacidadMaxima = numero == 10 ? 40 : 34;
+        this.capacidadMaxima = numero == 10 ? 74 : 34;
     }
 
     public Long getId() {

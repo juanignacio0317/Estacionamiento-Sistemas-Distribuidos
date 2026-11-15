@@ -86,7 +86,7 @@ public class InicializacionServicio {
                 sector = new Sector(numero, zona);
             }
 
-            int capacidadSector = numero == 10 ? 40 : 34;
+            int capacidadSector = numero == 10 ? 74 : 34;
 
             sector.setCapacidadMaxima(capacidadSector);
 

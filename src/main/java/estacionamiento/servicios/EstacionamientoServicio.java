@@ -24,7 +24,7 @@ public class EstacionamientoServicio {
     private final ApplicationEventPublisher eventPublisher;
     private final ActividadServicio actividadServicio;
     private final ReservaRepo reservaRepo;
-
+    private final EstadoEstacionamientoServicio estadoEstacionamientoServicio;
 
     public EstacionamientoServicio(
             LugarRepo lugarRepo,
@@ -35,7 +35,8 @@ public class EstacionamientoServicio {
             SectorRepo sectorRepo,
             ApplicationEventPublisher eventPublisher,
             ActividadServicio actividadServicio,
-            ReservaRepo reservaRepo
+            ReservaRepo reservaRepo,
+            EstadoEstacionamientoServicio estadoEstacionamientoServicio
     ) {
         this.lugarRepo = lugarRepo;
         this.estadiaRepo = estadiaRepo;
@@ -46,6 +47,7 @@ public class EstacionamientoServicio {
         this.eventPublisher = eventPublisher;
         this.actividadServicio = actividadServicio;
         this.reservaRepo = reservaRepo;
+        this.estadoEstacionamientoServicio = estadoEstacionamientoServicio;
     }
 
     public long cantidadLugaresLibres() {
@@ -59,6 +61,10 @@ public class EstacionamientoServicio {
 
     @Transactional
     public boolean buscarLugar(String matricula, Long entradaId) {
+
+        if (!estadoEstacionamientoServicio.bloquearParaIngreso()) {
+            return false;
+        }
 
         Vehiculo vehiculo = vehiculoRepo.findById(matricula)
                 .orElseThrow();

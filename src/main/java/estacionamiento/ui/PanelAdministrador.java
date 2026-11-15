@@ -83,6 +83,11 @@ public class PanelAdministrador extends JPanel {
                 new PanelReservas()
         );
 
+        pestañas.addTab(
+                "Cierre",
+                new PanelCierre()
+        );
+
         add(pestañas, BorderLayout.CENTER);
     }
 
